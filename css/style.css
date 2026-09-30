@@ -1,0 +1,14 @@
+/* Era Advogados — estilos globais */
+html,body{margin:0;padding:0;background:#FFFFFF}
+
+body{font-family:Manrope,sans-serif;color:#3D4150;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+*{box-sizing:border-box}
+
+a{color:#0A1338;text-decoration:none}
+
+a:hover{color:#1F2F6B}
+
+::selection{background:#E9DDBF;color:#0A1338}
+
+input,select,textarea,button{font-family:Manrope,sans-serif}

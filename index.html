@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="js/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Era Advogados Associados · Advocacia empresarial em São Paulo</title>
+<meta name="description" content="Estratégia jurídica para decisões que impactam o futuro do negócio. Direito Empresarial, Trabalhista, Tributário e Assessoria Jurídica para empresas e grupos econômicos.">
+<meta property="og:title" content="Era Advogados Associados">
+<meta property="og:image" content="assets/era-logo.png">
+<link rel="icon" href="assets/era-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Manrope:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+<script src="js/image-slot.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</helmet>
+
+<div style="min-height:100vh;background:#FFFFFF">
+<a href="#conteudo" style="position:fixed;left:-9999px;top:16px;z-index:100;padding:12px 16px;background:#0A1338;color:#FFFFFF;font-size:14px;font-weight:600" style-focus="left:16px">Pular para o conteúdo</a>
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:50;height:80px;background:rgba(255,255,255,0.84);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);box-shadow:0 1px 0 rgba(10,19,56,0.08)">
+  <div style="max-width:1320px;height:100%;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:32px">
+    <button onClick="{{ goHome }}" aria-label="Era Advogados, página inicial" style="display:flex;align-items:center;padding:0;background:none;border:none;cursor:pointer;border-radius:2px" style-focus="outline:2px solid #B08A3E;outline-offset:4px">
+      <img src="assets/era-logo.png" alt="Era Advogados Associados" style="height:48px;width:auto;display:block">
+    </button>
+    <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Principal" style="display:flex;align-items:center;gap:32px">
+        <sc-for list="{{ navTop }}" as="item" hint-placeholder-count="6">
+          <button onClick="{{ item.go }}" aria-current="{{ item.aria }}" style="position: relative; padding: 8px 0; background: none; border: none; cursor: pointer; font-size: 14px; line-height: 20px; font-weight: 600; color: {{ item.color }}; transition: color 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="color:#0A1338" style-focus="outline:2px solid #B08A3E;outline-offset:4px">
+            {{ item.label }}
+            <span style="position:absolute;left:0;right:0;bottom:0;height:1px;background:#B08A3E;transform-origin:left;transform:scaleX({{ item.line }});transition:transform 700ms cubic-bezier(0.32,0.72,0,1)"></span>
+          </button>
+        </sc-for>
+        <button onClick="{{ goContato }}" style="padding:8px 16px;background:#0A1338;color:#FFFFFF;border:1px solid #0A1338;border-radius:2px;font-size:14px;line-height:20px;font-weight:600;cursor:pointer;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#1F2F6B;border-color:#1F2F6B" style-active="transform:scale(0.98)" style-focus="outline:2px solid #B08A3E;outline-offset:3px">Fale conosco</button>
+      </nav>
+    </sc-if>
+    <sc-if value="{{ compact }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggleMenu }}" aria-label="{{ menuLabel }}" aria-expanded="{{ menu }}" style="position:relative;width:44px;height:44px;padding:0;background:none;border:1px solid #E4E1D8;border-radius:2px;cursor:pointer" style-focus="outline:2px solid #B08A3E;outline-offset:3px">
+        <span style="position:absolute;left:11px;top:17px;width:22px;height:1.5px;background:#0A1338;transform:{{ l1 }};transition:transform 600ms cubic-bezier(0.32,0.72,0,1)"></span>
+        <span style="position:absolute;left:11px;top:25px;width:22px;height:1.5px;background:#0A1338;transform:{{ l2 }};transition:transform 600ms cubic-bezier(0.32,0.72,0,1)"></span>
+      </button>
+    </sc-if>
+  </div>
+</header>
+
+<sc-if value="{{ compact }}" hint-placeholder-val="{{ false }}">
+  <div aria-hidden="{{ menuHidden }}" style="position:fixed;top:80px;left:0;right:0;bottom:0;z-index:45;background:rgba(255,255,255,0.9);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);opacity:{{ menuOp }};visibility:{{ menuVis }};transition:opacity 600ms cubic-bezier(0.32,0.72,0,1),visibility 600ms;overflow-y:auto">
+    <nav aria-label="Menu" style="display:flex;flex-direction:column;gap:8px;padding:40px clamp(24px,5vw,64px)">
+      <sc-for list="{{ nav }}" as="item" hint-placeholder-count="6">
+        <div style="overflow:hidden">
+          <button onClick="{{ item.go }}" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:16px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:{{ item.color }};opacity:{{ item.mo }};transform:translateY({{ item.mty }});transition:all 800ms cubic-bezier(0.32,0.72,0,1);transition-delay:{{ item.delay }}" style-focus="outline:2px solid #B08A3E">
+            {{ item.label }}
+            <i class="ph-light ph-arrow-right" style="font-size:24px;color:#B08A3E"></i>
+          </button>
+        </div>
+      </sc-for>
+      <div style="display:flex;flex-direction:column;gap:8px;padding-top:32px;font-size:14px;line-height:20px">
+        <a href="tel:+551138472916" style="color:#0A1338;font-weight:600">+55 (11) 3847 2916</a>
+        <a href="mailto:contato@eraadvogados.com.br" style="color:#4A4F60">contato@eraadvogados.com.br</a>
+      </div>
+    </nav>
+  </div>
+</sc-if>
+
+<main id="conteudo" style="padding-top:80px">
+
+<!-- ===================== HOME ===================== -->
+<sc-if value="{{ isInicio }}" hint-placeholder-val="{{ true }}">
+  <section data-screen-label="Home" style="padding:clamp(48px,7vw,96px) 0 clamp(64px,8vw,96px)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-wrap:wrap;align-items:center;gap:clamp(48px,6vw,96px)">
+      <div style="flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:32px">
+        <div data-reveal="0" style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Advocacia empresarial desde 2009</div>
+        <h1 data-reveal="80" style="margin:0;max-width:680px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,6vw,84px);line-height:1;letter-spacing:-0.015em;text-wrap:balance;background:linear-gradient(90deg,#0A1338 0%,#2B3C85 100%);-webkit-background-clip:text;background-clip:text;color:transparent">Estratégia jurídica para decisões que impactam o futuro do negócio.</h1>
+        <p data-reveal="160" style="margin:0;max-width:560px;font-size:18px;line-height:28px;color:#3D4150;text-wrap:pretty">Combinamos conhecimento jurídico, experiência empresarial e visão estratégica para antecipar riscos, estruturar operações e proteger o que a sua empresa construiu.</p>
+        <div data-reveal="240" style="display:flex;flex-wrap:wrap;align-items:center;gap:24px">
+          <button onClick="{{ goContato }}" style="display:inline-flex;align-items:center;gap:12px;padding:16px 24px;background:#0A1338;color:#FFFFFF;border:1px solid #0A1338;border-radius:2px;font-size:16px;line-height:24px;font-weight:600;cursor:pointer;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#1F2F6B;border-color:#1F2F6B" style-active="transform:scale(0.98)" style-focus="outline:2px solid #B08A3E;outline-offset:3px">Fale com nossos especialistas<i class="ph-light ph-arrow-right" style="font-size:20px"></i></button>
+          <button onClick="{{ goAreas }}" style="padding:8px 0;background:none;border:none;cursor:pointer;font-size:16px;line-height:24px;font-weight:600;color:#0A1338;text-decoration:underline;text-decoration-color:#B08A3E;text-underline-offset:6px" style-hover="color:#1F2F6B" style-focus="outline:2px solid #B08A3E;outline-offset:4px">Conheça as áreas de atuação</button>
+        </div>
+        <p data-reveal="320" style="margin:0;padding-top:24px;max-width:520px;font-size:14px;line-height:20px;color:#6B6F7B">Assessoramos grupos econômicos, conselhos e diretorias de empresas de médio e grande porte em São Paulo e Brasília.</p>
+      </div>
+      <div data-reveal="200" style="flex:1 1 380px;min-width:0;max-width:560px;position:relative;padding:16px 0 0 16px">
+        <div style="position:absolute;top:0;left:0;right:16px;bottom:16px;border:1px solid #B08A3E;pointer-events:none"></div>
+        <div style="position:relative;aspect-ratio:4/5;background:#EDEAE2">
+          <image-slot id="home-hero" shape="rect" placeholder="Retrato dos sócios no escritório, luz natural" style="position:absolute;inset:0"></image-slot>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Em números" style="box-shadow:inset 0 1px 0 #E4E1D8,inset 0 -1px 0 #E4E1D8">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))">
+      <div data-reveal="0" style="padding:32px 24px 32px 0;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#0A1338">17 anos</span><span style="font-size:14px;line-height:20px;color:#4A4F60">de atuação em direito empresarial</span></div>
+      <div data-reveal="80" style="padding:32px 24px 32px 0;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#0A1338">4 sócios</span><span style="font-size:14px;line-height:20px;color:#4A4F60">responsáveis diretos por cada cliente</span></div>
+      <div data-reveal="160" style="padding:32px 24px 32px 0;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#0A1338">São Paulo e Brasília</span><span style="font-size:14px;line-height:20px;color:#4A4F60">com atuação em todo o país</span></div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(64px,9vw,128px) 0">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(40px,6vw,96px)">
+      <div data-reveal="0" style="flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>O escritório</div>
+        <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.2vw,60px);line-height:1.05;letter-spacing:-0.01em;color:#0A1338;text-wrap:balance">Nascemos dentro do ambiente empresarial.</h2>
+      </div>
+      <div data-reveal="120" style="flex:1.3 1 480px;min-width:0;display:flex;flex-direction:column;gap:24px">
+        <p style="margin:0;font-size:18px;line-height:28px;color:#3D4150;text-wrap:pretty">Os sócios do Era Advogados foram diretores jurídicos antes de fundar o escritório. Por isso, falamos a língua de quem decide: prazos, números, impacto no caixa e na reputação.</p>
+        <p style="margin:0;font-size:16px;line-height:24px;color:#4A4F60;text-wrap:pretty">Atendemos poucos clientes por sócio, de forma deliberada. Cada empresa tem um responsável que conhece seu histórico, participa das decisões relevantes e responde pessoalmente pelo trabalho entregue.</p>
+        <button onClick="{{ goEscritorio }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:8px 0;background:none;border:none;cursor:pointer;font-size:16px;line-height:24px;font-weight:600;color:#0A1338;transition:gap 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="gap:16px" style-focus="outline:2px solid #B08A3E;outline-offset:4px">Conheça o escritório<i class="ph-light ph-arrow-right" style="font-size:20px;color:#B08A3E"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(64px,9vw,128px) 0;background:#F6F4EF">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
+      <div data-reveal="0" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px">
+        <div style="display:flex;flex-direction:column;gap:24px;max-width:680px">
+          <div style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Áreas de atuação</div>
+          <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.2vw,60px);line-height:1.05;letter-spacing:-0.01em;color:#0A1338;text-wrap:balance">Quatro frentes, uma leitura integrada do negócio.</h2>
+        </div>
+        <button onClick="{{ goAreas }}" style="display:inline-flex;align-items:center;gap:8px;padding:8px 0;background:none;border:none;cursor:pointer;font-size:16px;line-height:24px;font-weight:600;color:#0A1338;transition:gap 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="gap:16px" style-focus="outline:2px solid #B08A3E;outline-offset:4px">Ver todas as áreas<i class="ph-light ph-arrow-right" style="font-size:20px;color:#B08A3E"></i></button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px">
+        <sc-for list="{{ areas }}" as="a" hint-placeholder-count="4">
+          <div data-reveal="{{ a.delay }}">
+            <button onClick="{{ a.go }}" style="display:flex;flex-direction:column;gap:24px;width:100%;height:100%;min-height:360px;padding:32px;background:#FFFFFF;border:1px solid #E4E1D8;border-radius:2px;text-align:left;cursor:pointer;transition:all 700ms cubic-bezier(0.32,0.72,0,1)" style-hover="border-color:#0A1338;transform:translateY(-4px);box-shadow:0 24px 48px -24px rgba(10,19,56,0.28)" style-active="transform:scale(0.98)" style-focus="outline:2px solid #B08A3E;outline-offset:3px">
+              <span style="display:flex;justify-content:space-between;align-items:flex-start;width:100%"><i class="ph-light {{ a.icon }}" style="font-size:40px;color:#0A1338"></i><span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;line-height:32px;color:#B08A3E">{{ a.n }}</span></span>
+              <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:36px;color:#0A1338;text-wrap:balance">{{ a.name }}</span>
+              <span style="flex:1;font-size:16px;line-height:24px;color:#4A4F60;text-wrap:pretty">{{ a.summary }}</span>
+              <span style="display:flex;align-items:center;gap:8px;font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Conhecer a área<i class="ph-light ph-arrow-right" style="font-size:18px;color:#B08A3E"></i></span>
+            </button>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Nossa convicção" style="padding:clamp(96px,14vw,192px) 0;background:#0A1338">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:40px">
+      <div style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#C9A55C"><span style="width:32px;height:1px;background:#C9A55C"></span>Nossa convicção</div>
+      <div style="max-width:960px;display:flex;flex-direction:column;gap:16px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,5vw,60px);line-height:1.08;letter-spacing:-0.01em">
+        <sc-for list="{{ taglineLines }}" as="line" hint-placeholder-count="2">
+          <p style="margin:0;display:flex;flex-wrap:wrap;column-gap:0.24em">
+            <sc-for list="{{ line.words }}" as="wd" hint-placeholder-count="8">
+              <span data-word="1" style="color: #FFFFFF; transition: color 700ms cubic-bezier(0.32,0.72,0,1)">{{ wd.w }}</span>
+            </sc-for>
+          </p>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(64px,9vw,128px) 0">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(48px,6vw,96px)">
+      <div style="flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:32px">
+        <div data-reveal="0" style="display:flex;flex-direction:column;gap:24px">
+          <div style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Diferenciais</div>
+          <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.2vw,60px);line-height:1.05;letter-spacing:-0.01em;color:#0A1338;text-wrap:balance">O que muda quando o advogado conhece a empresa.</h2>
+        </div>
+        <div data-reveal="120" style="position:relative;aspect-ratio:4/3;background:#EDEAE2">
+          <image-slot id="home-diferenciais" shape="rect" placeholder="Reunião de trabalho com cliente, sala de reuniões" style="position:absolute;inset:0"></image-slot>
+        </div>
+      </div>
+      <div style="flex:1.2 1 480px;min-width:0;display:flex;flex-direction:column">
+        <sc-for list="{{ diffs }}" as="d" hint-placeholder-count="4">
+          <div data-reveal="{{ d.delay }}" style="display:grid;grid-template-columns:48px minmax(0,1fr);gap:24px;padding:32px 0;box-shadow:inset 0 1px 0 #E4E1D8">
+            <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;line-height:32px;color:#B08A3E">{{ d.n }}</span>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:36px;color:#0A1338">{{ d.t }}</h3>
+              <p style="margin:0;font-size:16px;line-height:24px;color:#4A4F60;text-wrap:pretty">{{ d.d }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(64px,9vw,128px) 0;background:#F6F4EF">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
+      <div data-reveal="0" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px">
+        <div style="display:flex;flex-direction:column;gap:24px;max-width:680px">
+          <div style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Artigos</div>
+          <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.2vw,60px);line-height:1.05;letter-spacing:-0.01em;color:#0A1338;text-wrap:balance">Análises para quem decide.</h2>
+        </div>
+        <button onClick="{{ goArtigos }}" style="display:inline-flex;align-items:center;gap:8px;padding:8px 0;background:none;border:none;cursor:pointer;font-size:16px;line-height:24px;font-weight:600;color:#0A1338;transition:gap 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="gap:16px" style-focus="outline:2px solid #B08A3E;outline-offset:4px">Ver todos os artigos<i class="ph-light ph-arrow-right" style="font-size:20px;color:#B08A3E"></i></button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(32px,4vw,48px) 32px">
+        <sc-for list="{{ recent }}" as="a" hint-placeholder-count="3">
+          <article data-reveal="{{ a.delay }}" style="display:flex;flex-direction:column;gap:24px">
+            <div style="position:relative;aspect-ratio:3/2;background:#EDEAE2"><image-slot id="art-{{ a.id }}" shape="rect" placeholder="{{ a.imgHint }}" style="position:absolute;inset:0"></image-slot></div>
+            <button onClick="{{ a.go }}" style="display:flex;flex-direction:column;gap:12px;padding:0;background:none;border:none;text-align:left;cursor:pointer" style-hover="opacity:0.8" style-focus="outline:2px solid #B08A3E;outline-offset:4px">
+              <span style="display:flex;gap:12px;font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8C6A2A">{{ a.cat }}<span style="color:#9A9DA8">{{ a.date }}</span></span>
+              <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:36px;color:#0A1338;text-wrap:balance">{{ a.title }}</span>
+              <span style="font-size:16px;line-height:24px;color:#4A4F60;text-wrap:pretty">{{ a.excerpt }}</span>
+              <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Ler artigo</span>
+            </button>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+<!-- ===================== O ESCRITÓRIO ===================== -->
+<sc-if value="{{ isEscritorio }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="O Escritório" style="padding:clamp(64px,8vw,96px) 0 clamp(48px,6vw,64px)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:32px">
+      <div data-reveal="0" style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>O escritório</div>
+      <h1 data-reveal="80" style="margin:0;max-width:880px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,5.6vw,72px);line-height:1;letter-spacing:-0.015em;color:#0A1338;text-wrap:balance">Solidez para sustentar decisões. Visão para antecipar o que vem.</h1>
+      <p data-reveal="160" style="margin:0;max-width:680px;font-size:18px;line-height:28px;color:#3D4150;text-wrap:pretty">Desde 2009, o Era Advogados assessora empresas e grupos econômicos com um modelo de atendimento próximo, conduzido por sócios e orientado por resultado.</p>
+    </div>
+  </section>
+  <div data-reveal="0" style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px)">
+    <div style="position:relative;aspect-ratio:21/9;min-height:280px;background:#EDEAE2"><image-slot id="esc-cover" shape="rect" placeholder="Sede do escritório, recepção ou biblioteca" style="position:absolute;inset:0"></image-slot></div>
+  </div>
+  <section style="padding:clamp(64px,9vw,128px) 0">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(40px,6vw,96px)">
+      <h2 data-reveal="0" style="flex:1 1 400px;margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.2vw,60px);line-height:1.05;letter-spacing:-0.01em;color:#0A1338;text-wrap:balance">Um escritório de porte médio, por escolha.</h2>
+      <div data-reveal="120" style="flex:1.3 1 480px;min-width:0;display:flex;flex-direction:column;gap:24px;font-size:18px;line-height:28px;color:#3D4150;text-wrap:pretty">
+        <p style="margin:0">O Era Advogados foi fundado por dois advogados que passaram parte da carreira dentro de empresas, como diretores jurídicos. Dessa experiência veio a convicção que orienta o escritório até hoje: o bom trabalho jurídico começa pela compreensão do negócio.</p>
+        <p style="margin:0">Mantemos uma estrutura enxuta, com 31 profissionais, para que cada cliente seja atendido diretamente por um sócio. Não delegamos o relacionamento, e não terceirizamos o raciocínio.</p>
+        <p style="margin:0;font-size:16px;line-height:24px;color:#4A4F60">Nossas quatro áreas trabalham de forma integrada. Uma reorganização societária é analisada ao mesmo tempo pelos times empresarial, tributário e trabalhista, porque é assim que as consequências aparecem na prática.</p>
+      </div>
+    </div>
+  </section>
+  <section style="padding:clamp(64px,9vw,128px) 0;background:#F6F4EF">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
+      <div data-reveal="0" style="display:flex;flex-direction:column;gap:24px;max-width:680px">
+        <div style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Propósito</div>
+        <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.2vw,60px);line-height:1.05;letter-spacing:-0.01em;color:#0A1338">Missão, visão e valores</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px">
+        <div data-reveal="0" style="display:flex;flex-direction:column;gap:24px;padding:40px;background:#FFFFFF;border:1px solid #E4E1D8;border-radius:2px">
+          <i class="ph-light ph-target" style="font-size:40px;color:#0A1338"></i>
+          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#0A1338">Missão</h3>
+          <p style="margin:0;font-size:16px;line-height:24px;color:#4A4F60;text-wrap:pretty">Oferecer às empresas uma advocacia estratégica, que antecipa riscos e dá segurança às decisões que definem o futuro do negócio.</p>
+        </div>
+        <div data-reveal="100" style="display:flex;flex-direction:column;gap:24px;padding:40px;background:#FFFFFF;border:1px solid #E4E1D8;border-radius:2px">
+          <i class="ph-light ph-binoculars" style="font-size:40px;color:#0A1338"></i>
+          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#0A1338">Visão</h3>
+          <p style="margin:0;font-size:16px;line-height:24px;color:#4A4F60;text-wrap:pretty">Ser reconhecido como o parceiro jurídico de confiança das diretorias e conselhos que buscam crescimento sustentável e bem estruturado.</p>
+        </div>
+        <div data-reveal="200" style="display:flex;flex-direction:column;gap:24px;padding:40px;background:#FFFFFF;border:1px solid #E4E1D8;border-radius:2px">
+          <i class="ph-light ph-seal-check" style="font-size:40px;color:#0A1338"></i>
+          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#0A1338">Valores</h3>
+          <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ values }}" as="v" hint-placeholder-count="5">
+              <li style="display:flex;gap:12px;font-size:16px;line-height:24px;color:#4A4F60"><span style="flex:none;width:6px;height:6px;margin-top:9px;background:#B08A3E"></span><span><strong style="color:#0A1338;font-weight:600">{{ v.t }}.</strong> {{ v.d }}</span></li>
+            </sc-for>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="padding:clamp(64px,9vw,128px) 0">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
+      <div data-reveal="0" style="display:flex;flex-direction:column;gap:24px;max-width:680px">
+        <div style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Trajetória</div>
+        <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.2vw,60px);line-height:1.05;letter-spacing:-0.01em;color:#0A1338">Nossa história</h2>
+      </div>
+      <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column">
+        <sc-for list="{{ timeline }}" as="t" hint-placeholder-count="6">
+          <li data-reveal="0" style="display:flex;flex-wrap:wrap;gap:16px clamp(32px,5vw,96px);padding:40px 0;box-shadow:inset 0 1px 0 #E4E1D8">
+            <div style="flex:0 0 200px;display:flex;align-items:center;gap:16px"><span style="width:8px;height:8px;background:#B08A3E;transform:rotate(45deg)"></span><span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:48px;line-height:1;color:#0A1338">{{ t.y }}</span></div>
+            <div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:8px;max-width:720px">
+              <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:36px;color:#0A1338">{{ t.t }}</h3>
+              <p style="margin:0;font-size:16px;line-height:24px;color:#4A4F60;text-wrap:pretty">{{ t.d }}</p>
+            </div>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+  </section>
+</sc-if>
+
+<!-- ===================== ÁREAS (LISTAGEM) ===================== -->
+<sc-if value="{{ isAreas }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Áreas de Atuação" style="padding:clamp(64px,8vw,96px) 0 clamp(48px,6vw,64px)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:32px">
+      <div data-reveal="0" style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Áreas de atuação</div>
+      <h1 data-reveal="80" style="margin:0;max-width:880px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,5.6vw,72px);line-height:1;letter-spacing:-0.015em;color:#0A1338;text-wrap:balance">Especialização profunda, atuação integrada.</h1>
+      <p data-reveal="160" style="margin:0;max-width:680px;font-size:18px;line-height:28px;color:#3D4150;text-wrap:pretty">Cada área tem sócios dedicados. Quando o tema exige, elas trabalham juntas, com um único responsável pelo relacionamento com a sua empresa.</p>
+    </div>
+  </section>
+  <section style="padding:0 0 clamp(64px,9vw,128px)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column">
+      <sc-for list="{{ areas }}" as="a" hint-placeholder-count="4">
+        <article data-reveal="0" style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,5vw,80px);padding:clamp(40px,5vw,64px) 0;box-shadow:inset 0 1px 0 #E4E1D8">
+          <div style="flex:1 1 420px;min-width:0;position:relative;aspect-ratio:4/3;background:#EDEAE2"><image-slot id="area-{{ a.slug }}" shape="rect" placeholder="{{ a.imgHint }}" style="position:absolute;inset:0"></image-slot></div>
+          <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:24px">
+            <span style="display:flex;align-items:center;gap:16px"><i class="ph-light {{ a.icon }}" style="font-size:40px;color:#0A1338"></i><span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;line-height:32px;color:#B08A3E">{{ a.n }}</span></span>
+            <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,3.6vw,48px);line-height:1.05;color:#0A1338">{{ a.name }}</h2>
+            <p style="margin:0;font-size:18px;line-height:28px;color:#3D4150;text-wrap:pretty">{{ a.summary }}</p>
+            <ul style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px 24px">
+              <sc-for list="{{ a.top }}" as="s" hint-placeholder-count="4">
+                <li style="display:flex;gap:8px;font-size:14px;line-height:20px;color:#4A4F60"><i class="ph-light ph-check" style="font-size:18px;color:#B08A3E"></i>{{ s }}</li>
+              </sc-for>
+            </ul>
+            <button onClick="{{ a.go }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:12px 24px;background:#FFFFFF;color:#0A1338;border:1px solid #0A1338;border-radius:2px;font-size:16px;line-height:24px;font-weight:600;cursor:pointer;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#0A1338;color:#FFFFFF" style-active="transform:scale(0.98)" style-focus="outline:2px solid #B08A3E;outline-offset:3px">Conhecer a área<i class="ph-light ph-arrow-right" style="font-size:20px"></i></button>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+</sc-if>
+
+<!-- ===================== ÁREA (INTERNA) ===================== -->
+<sc-if value="{{ isArea }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Área de Atuação" style="padding:clamp(40px,5vw,64px) 0 clamp(48px,6vw,64px)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:32px">
+      <nav aria-label="Trilha" style="display:flex;align-items:center;gap:8px;font-size:14px;line-height:20px;color:#6B6F7B">
+        <button onClick="{{ goAreas }}" style="padding:0;background:none;border:none;cursor:pointer;font-size:14px;color:#4A4F60;text-decoration:underline;text-underline-offset:4px" style-hover="color:#0A1338">Áreas de atuação</button>
+        <i class="ph-light ph-caret-right" style="font-size:14px"></i><span style="color:#0A1338;font-weight:600">{{ area.name }}</span>
+      </nav>
+      <div role="tablist" aria-label="Áreas" style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px">
+        <sc-for list="{{ areaTabs }}" as="t" hint-placeholder-count="4">
+          <button role="tab" aria-selected="{{ t.sel }}" onClick="{{ t.go }}" style="flex:none;padding:8px 16px;background:{{ t.bg }};color:{{ t.fg }};border:1px solid {{ t.bd }};border-radius:2px;font-size:14px;line-height:20px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="border-color:#0A1338" style-focus="outline:2px solid #B08A3E;outline-offset:2px">{{ t.name }}</button>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:32px;padding-top:24px">
+        <i data-reveal="0" class="ph-light {{ area.icon }}" style="font-size:48px;color:#0A1338"></i>
+        <h1 data-reveal="80" style="margin:0;max-width:880px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,5.6vw,72px);line-height:1;letter-spacing:-0.015em;color:#0A1338;text-wrap:balance">{{ area.name }}</h1>
+        <p data-reveal="160" style="margin:0;max-width:680px;font-size:18px;line-height:28px;color:#3D4150;text-wrap:pretty">{{ area.lead }}</p>
+      </div>
+    </div>
+  </section>
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px)">
+    <div style="position:relative;aspect-ratio:21/9;min-height:260px;background:#EDEAE2"><image-slot id="area-{{ area.slug }}" shape="rect" placeholder="{{ area.imgHint }}" style="position:absolute;inset:0"></image-slot></div>
+  </div>
+  <section style="padding:clamp(64px,9vw,128px) 0">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(40px,6vw,96px)">
+      <div data-reveal="0" style="flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>A especialização</div>
+        <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.2vw,60px);line-height:1.05;letter-spacing:-0.01em;color:#0A1338;text-wrap:balance">{{ area.headline }}</h2>
+      </div>
+      <div data-reveal="120" style="flex:1.3 1 480px;min-width:0;display:flex;flex-direction:column;gap:24px">
+        <sc-for list="{{ area.desc }}" as="p" hint-placeholder-count="2">
+          <p style="margin:0;font-size:18px;line-height:28px;color:#3D4150;text-wrap:pretty">{{ p }}</p>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+  <section style="padding:clamp(64px,9vw,128px) 0;background:#F6F4EF">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
+      <div data-reveal="0" style="display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Como atuamos</div>
+        <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.2vw,60px);line-height:1.05;letter-spacing:-0.01em;color:#0A1338">Três etapas, um responsável.</h2>
+      </div>
+      <ol style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
+        <sc-for list="{{ area.steps }}" as="s" hint-placeholder-count="3">
+          <li data-reveal="{{ s.delay }}" style="display:flex;flex-direction:column;gap:16px;padding:40px;background:#FFFFFF;border:1px solid #E4E1D8;border-radius:2px">
+            <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:48px;line-height:1;color:#B08A3E">{{ s.n }}</span>
+            <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:36px;color:#0A1338">{{ s.t }}</h3>
+            <p style="margin:0;font-size:16px;line-height:24px;color:#4A4F60;text-wrap:pretty">{{ s.d }}</p>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+  </section>
+  <section style="padding:clamp(64px,9vw,128px) 0">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(48px,6vw,96px)">
+      <div data-reveal="0" style="flex:1.3 1 480px;min-width:0;display:flex;flex-direction:column;gap:32px">
+        <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3vw,48px);line-height:1.05;color:#0A1338">Frentes de trabalho</h2>
+        <ul style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:0 32px">
+          <sc-for list="{{ area.services }}" as="s" hint-placeholder-count="6">
+            <li style="display:flex;gap:12px;padding:16px 0;box-shadow:inset 0 -1px 0 #E4E1D8;font-size:16px;line-height:24px;color:#0A1338"><i class="ph-light ph-check" style="font-size:20px;color:#B08A3E"></i>{{ s }}</li>
+          </sc-for>
+        </ul>
+      </div>
+      <div data-reveal="120" style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:32px">
+        <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3vw,48px);line-height:1.05;color:#0A1338">Sócios e advogados responsáveis</h2>
+        <sc-for list="{{ areaTeam }}" as="m" hint-placeholder-count="2">
+          <div style="display:flex;align-items:center;gap:16px">
+            <div style="flex:none;position:relative;width:80px;height:96px;background:#EDEAE2"><image-slot id="team-{{ m.id }}" shape="rect" placeholder="Foto" style="position:absolute;inset:0"></image-slot></div>
+            <button onClick="{{ m.go }}" style="display:flex;flex-direction:column;gap:4px;padding:0;background:none;border:none;text-align:left;cursor:pointer" style-hover="opacity:0.75" style-focus="outline:2px solid #B08A3E;outline-offset:4px">
+              <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;line-height:32px;color:#0A1338">{{ m.name }}</span>
+              <span style="font-size:14px;line-height:20px;color:#4A4F60">{{ m.role }}</span>
+              <span style="display:flex;align-items:center;gap:4px;font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Ver perfil<i class="ph-light ph-arrow-right" style="color:#B08A3E"></i></span>
+            </button>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+  <section style="padding:0 0 clamp(64px,9vw,128px)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px)">
+      <div data-reveal="0" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px;padding:clamp(40px,6vw,80px);background:#0A1338;border-radius:2px">
+        <div style="flex:1 1 420px;display:flex;flex-direction:column;gap:16px;max-width:680px">
+          <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4vw,48px);line-height:1.05;color:#FFFFFF;text-wrap:balance">Vamos conversar sobre {{ area.short }}?</h2>
+          <p style="margin:0;font-size:16px;line-height:24px;color:#C9CCD8;text-wrap:pretty">Conte brevemente o contexto. Um sócio da área retorna em até um dia útil, sob sigilo profissional.</p>
+        </div>
+        <button onClick="{{ goContato }}" style="display:inline-flex;align-items:center;gap:12px;padding:16px 24px;background:#FFFFFF;color:#0A1338;border:1px solid #FFFFFF;border-radius:2px;font-size:16px;line-height:24px;font-weight:600;cursor:pointer;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#E9DDBF;border-color:#E9DDBF" style-active="transform:scale(0.98)" style-focus="outline:2px solid #C9A55C;outline-offset:3px">Fale com um especialista<i class="ph-light ph-arrow-right" style="font-size:20px"></i></button>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+<!-- ===================== EQUIPE ===================== -->
+<sc-if value="{{ isEquipe }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Nossa Equipe" style="padding:clamp(64px,8vw,96px) 0 clamp(48px,6vw,64px)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:32px">
+      <div data-reveal="0" style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Nossa equipe</div>
+      <h1 data-reveal="80" style="margin:0;max-width:880px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,5.6vw,72px);line-height:1;letter-spacing:-0.015em;color:#0A1338;text-wrap:balance">Quem cuida do seu caso tem nome, trajetória e responsabilidade.</h1>
+      <p data-reveal="160" style="margin:0;max-width:680px;font-size:18px;line-height:28px;color:#3D4150;text-wrap:pretty">Nossos sócios conduzem pessoalmente cada relacionamento. Conheça a formação e a experiência de quem estará ao lado da sua empresa.</p>
+    </div>
+  </section>
+
+  <section ref="{{ featureRef }}" aria-label="Perfil em destaque" style="padding:0 0 clamp(64px,9vw,128px);scroll-margin-top:104px">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px)">
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(40px,5vw,80px);padding:clamp(24px,4vw,64px);background:#F6F4EF;border-radius:2px">
+        <div style="flex:1 1 340px;min-width:0;max-width:520px;display:flex;flex-direction:column;gap:16px">
+          <div style="position:relative;aspect-ratio:4/5;background:#E4E1D8"><image-slot id="team-{{ member.id }}" shape="rect" placeholder="Retrato de {{ member.name }}" style="position:absolute;inset:0"></image-slot></div>
+          <div style="display:flex;gap:8px">
+            <a href="mailto:{{ member.email }}" aria-label="Enviar email" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #D6D2C6;border-radius:2px;color:#0A1338;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#0A1338;color:#FFFFFF;border-color:#0A1338"><i class="ph-light ph-envelope-simple" style="font-size:20px"></i></a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #D6D2C6;border-radius:2px;color:#0A1338;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#0A1338;color:#FFFFFF;border-color:#0A1338"><i class="ph-light ph-linkedin-logo" style="font-size:20px"></i></a>
+          </div>
+        </div>
+        <div style="flex:1.4 1 460px;min-width:0;display:flex;flex-direction:column;gap:32px">
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>{{ member.role }}</div>
+            <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.2vw,60px);line-height:1.05;letter-spacing:-0.01em;color:#0A1338;text-wrap:balance">{{ member.name }}</h2>
+            <p style="margin:0;display:flex;flex-wrap:wrap;gap:8px 16px;font-size:14px;line-height:20px;color:#4A4F60"><span style="font-weight:600;color:#0A1338">{{ member.area }}</span><span>{{ member.oab }}</span><span>{{ member.years }}</span></p>
+          </div>
+          <blockquote style="margin:0;padding:24px 0;box-shadow:inset 0 1px 0 #D6D2C6,inset 0 -1px 0 #D6D2C6;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.4vw,30px);line-height:1.2;color:#0A1338;text-wrap:balance">“{{ member.quote }}”</blockquote>
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <sc-for list="{{ member.bio }}" as="p" hint-placeholder-count="2">
+              <p style="margin:0;font-size:16px;line-height:24px;color:#3D4150;text-wrap:pretty">{{ p }}</p>
+            </sc-for>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:24px">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8C6A2A">Formação</span>
+              <sc-for list="{{ member.edu }}" as="e" hint-placeholder-count="3"><span style="font-size:14px;line-height:20px;color:#0A1338">{{ e }}</span></sc-for>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8C6A2A">Reconhecimentos</span>
+              <sc-for list="{{ member.rec }}" as="e" hint-placeholder-count="2"><span style="font-size:14px;line-height:20px;color:#0A1338">{{ e }}</span></sc-for>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8C6A2A">Idiomas</span>
+              <span style="font-size:14px;line-height:20px;color:#0A1338">{{ member.lang }}</span>
+            </div>
+          </div>
+          <button onClick="{{ goContato }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:16px 24px;background:#0A1338;color:#FFFFFF;border:1px solid #0A1338;border-radius:2px;font-size:16px;line-height:24px;font-weight:600;cursor:pointer;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#1F2F6B;border-color:#1F2F6B" style-active="transform:scale(0.98)" style-focus="outline:2px solid #B08A3E;outline-offset:3px">Agendar conversa com {{ member.first }}<i class="ph-light ph-arrow-right" style="font-size:20px"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:0 0 clamp(64px,9vw,128px)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:40px">
+      <h2 data-reveal="0" style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3vw,48px);line-height:1.05;color:#0A1338">Sócios e advogados</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:clamp(32px,3vw,48px) 24px">
+        <sc-for list="{{ team }}" as="m" hint-placeholder-count="6">
+          <div data-reveal="{{ m.delay }}" style="display:flex;flex-direction:column;gap:16px">
+            <div style="position:relative;aspect-ratio:4/5;background:#EDEAE2;outline:1px solid {{ m.ring }};outline-offset:8px;transition:outline-color 500ms cubic-bezier(0.32,0.72,0,1)"><image-slot id="team-{{ m.id }}" shape="rect" placeholder="Retrato de {{ m.name }}" style="position:absolute;inset:0"></image-slot></div>
+            <button onClick="{{ m.select }}" aria-pressed="{{ m.sel }}" style="display:flex;flex-direction:column;gap:4px;padding:8px 0 0;background:none;border:none;text-align:left;cursor:pointer" style-hover="opacity:0.75" style-focus="outline:2px solid #B08A3E;outline-offset:4px">
+              <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:36px;color:#0A1338">{{ m.name }}</span>
+              <span style="font-size:14px;line-height:20px;color:#4A4F60">{{ m.role }} · {{ m.area }}</span>
+              <span style="display:flex;align-items:center;gap:4px;padding-top:8px;font-size:14px;line-height:20px;font-weight:600;color:#0A1338">{{ m.cta }}<i class="ph-light ph-arrow-up-right" style="color:#B08A3E"></i></span>
+            </button>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+<!-- ===================== ARTIGOS (LISTAGEM) ===================== -->
+<sc-if value="{{ isArtigos }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Artigos" style="padding:clamp(64px,8vw,96px) 0 clamp(40px,5vw,48px)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:32px">
+      <div data-reveal="0" style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Artigos e análises</div>
+      <h1 data-reveal="80" style="margin:0;max-width:880px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,5.6vw,72px);line-height:1;letter-spacing:-0.015em;color:#0A1338;text-wrap:balance">Leituras objetivas sobre o que muda para a sua empresa.</h1>
+      <div role="tablist" aria-label="Filtrar por área" style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
+          <button role="tab" aria-selected="{{ f.sel }}" onClick="{{ f.go }}" style="flex:none;padding:8px 16px;background:{{ f.bg }};color:{{ f.fg }};border:1px solid {{ f.bd }};border-radius:2px;font-size:14px;line-height:20px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="border-color:#0A1338" style-focus="outline:2px solid #B08A3E;outline-offset:2px">{{ f.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+  <section style="padding:0 0 clamp(64px,9vw,128px)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:clamp(48px,6vw,80px)">
+      <sc-if value="{{ featured }}" hint-placeholder-val="{{ true }}">
+        <article data-reveal="0" style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,5vw,64px);padding-bottom:clamp(48px,6vw,80px);box-shadow:inset 0 -1px 0 #E4E1D8">
+          <div style="flex:1.3 1 460px;min-width:0;position:relative;aspect-ratio:16/10;background:#EDEAE2"><image-slot id="art-{{ featured.id }}" shape="rect" placeholder="{{ featured.imgHint }}" style="position:absolute;inset:0"></image-slot></div>
+          <button onClick="{{ featured.go }}" style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:16px;padding:0;background:none;border:none;text-align:left;cursor:pointer" style-hover="opacity:0.8" style-focus="outline:2px solid #B08A3E;outline-offset:4px">
+            <span style="display:flex;gap:12px;font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8C6A2A">Em destaque · {{ featured.cat }}</span>
+            <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3.4vw,48px);line-height:1.08;color:#0A1338;text-wrap:balance">{{ featured.title }}</span>
+            <span style="font-size:18px;line-height:28px;color:#4A4F60;text-wrap:pretty">{{ featured.excerpt }}</span>
+            <span style="font-size:14px;line-height:20px;color:#6B6F7B">{{ featured.author }} · {{ featured.date }}</span>
+          </button>
+        </article>
+      </sc-if>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:clamp(40px,4vw,64px) 32px">
+        <sc-for list="{{ restArticles }}" as="a" hint-placeholder-count="5">
+          <article data-reveal="{{ a.delay }}" style="display:flex;flex-direction:column;gap:24px">
+            <div style="position:relative;aspect-ratio:3/2;background:#EDEAE2"><image-slot id="art-{{ a.id }}" shape="rect" placeholder="{{ a.imgHint }}" style="position:absolute;inset:0"></image-slot></div>
+            <button onClick="{{ a.go }}" style="display:flex;flex-direction:column;gap:12px;padding:0;background:none;border:none;text-align:left;cursor:pointer" style-hover="opacity:0.8" style-focus="outline:2px solid #B08A3E;outline-offset:4px">
+              <span style="display:flex;gap:12px;font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8C6A2A">{{ a.cat }}<span style="color:#9A9DA8">{{ a.date }}</span></span>
+              <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:36px;color:#0A1338;text-wrap:balance">{{ a.title }}</span>
+              <span style="font-size:16px;line-height:24px;color:#4A4F60;text-wrap:pretty">{{ a.excerpt }}</span>
+              <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Ler artigo</span>
+            </button>
+          </article>
+        </sc-for>
+      </div>
+      <sc-if value="{{ noArticles }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:64px;border:1px solid #E4E1D8;border-radius:2px">
+          <i class="ph-light ph-newspaper" style="font-size:40px;color:#0A1338"></i>
+          <p style="margin:0;font-size:18px;line-height:28px;color:#0A1338">Ainda não publicamos artigos nesta área.</p>
+          <button onClick="{{ clearFilter }}" style="padding:8px 0;background:none;border:none;cursor:pointer;font-size:16px;font-weight:600;color:#0A1338;text-decoration:underline;text-decoration-color:#B08A3E;text-underline-offset:6px">Ver todos os artigos</button>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+</sc-if>
+
+<!-- ===================== ARTIGO (INTERNA) ===================== -->
+<sc-if value="{{ isArtigo }}" hint-placeholder-val="{{ false }}">
+  <article data-screen-label="Artigo">
+    <header style="padding:clamp(40px,5vw,64px) 0 clamp(40px,5vw,64px)">
+      <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:32px">
+        <nav aria-label="Trilha" style="display:flex;align-items:center;gap:8px;font-size:14px;line-height:20px;color:#6B6F7B">
+          <button onClick="{{ goArtigos }}" style="padding:0;background:none;border:none;cursor:pointer;font-size:14px;color:#4A4F60;text-decoration:underline;text-underline-offset:4px" style-hover="color:#0A1338">Artigos</button>
+          <i class="ph-light ph-caret-right" style="font-size:14px"></i><span style="color:#0A1338;font-weight:600">{{ article.cat }}</span>
+        </nav>
+        <h1 data-reveal="0" style="margin:0;max-width:960px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,5vw,72px);line-height:1.02;letter-spacing:-0.015em;color:#0A1338;text-wrap:balance">{{ article.title }}</h1>
+        <p data-reveal="80" style="margin:0;max-width:720px;font-size:20px;line-height:28px;color:#3D4150;text-wrap:pretty">{{ article.excerpt }}</p>
+        <div data-reveal="160" style="display:flex;flex-wrap:wrap;align-items:center;gap:16px">
+          <div style="position:relative;width:48px;height:48px;background:#EDEAE2"><image-slot id="team-{{ article.authorId }}" shape="rect" placeholder="Foto" style="position:absolute;inset:0"></image-slot></div>
+          <div style="display:flex;flex-direction:column"><span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">{{ article.author }}</span><span style="font-size:14px;line-height:20px;color:#6B6F7B">{{ article.date }}</span></div>
+        </div>
+      </div>
+    </header>
+    <div data-reveal="0" style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px)">
+      <div style="position:relative;aspect-ratio:16/8;min-height:240px;background:#EDEAE2"><image-slot id="art-{{ article.id }}" shape="rect" placeholder="{{ article.imgHint }}" style="position:absolute;inset:0"></image-slot></div>
+    </div>
+    <div style="max-width:768px;margin:0 auto;padding:clamp(48px,6vw,80px) clamp(24px,5vw,64px) clamp(64px,8vw,96px);display:flex;flex-direction:column;gap:24px">
+      <sc-for list="{{ article.bodyA }}" as="p" hint-placeholder-count="2">
+        <p style="margin:0;font-size:18px;line-height:28px;color:#2E3242;text-wrap:pretty">{{ p }}</p>
+      </sc-for>
+      <h2 style="margin:24px 0 0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#0A1338;text-wrap:balance">{{ article.sub }}</h2>
+      <sc-for list="{{ article.bodyB }}" as="p" hint-placeholder-count="2">
+        <p style="margin:0;font-size:18px;line-height:28px;color:#2E3242;text-wrap:pretty">{{ p }}</p>
+      </sc-for>
+      <figure style="margin:24px 0;display:flex;flex-direction:column;gap:16px">
+        <span style="width:48px;height:2px;background:#B08A3E"></span>
+        <blockquote style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3.4vw,36px);line-height:1.15;color:#0A1338;text-wrap:balance">{{ article.quote }}</blockquote>
+      </figure>
+      <sc-if value="{{ article.video }}" hint-placeholder-val="{{ false }}">
+        <figure style="margin:16px 0;display:flex;flex-direction:column;gap:12px">
+          <div style="position:relative;aspect-ratio:16/9;background:#0A1338">
+            <image-slot id="art-{{ article.id }}-video" shape="rect" placeholder="Frame do vídeo" style="position:absolute;inset:0"></image-slot>
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none">
+              <button aria-label="Reproduzir vídeo" style="pointer-events:auto;display:flex;align-items:center;justify-content:center;width:80px;height:80px;border-radius:9999px;background:rgba(255,255,255,0.92);border:none;cursor:pointer;box-shadow:0 16px 40px -16px rgba(10,19,56,0.5);transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="transform:scale(1.06)" style-active="transform:scale(0.98)" style-focus="outline:2px solid #B08A3E;outline-offset:4px"><i class="ph-light ph-play" style="font-size:32px;color:#0A1338;margin-left:4px"></i></button>
+            </div>
+          </div>
+          <figcaption style="font-size:14px;line-height:20px;color:#6B6F7B">{{ article.videoCaption }}</figcaption>
+        </figure>
+      </sc-if>
+      <sc-for list="{{ article.bodyC }}" as="p" hint-placeholder-count="1">
+        <p style="margin:0;font-size:18px;line-height:28px;color:#2E3242;text-wrap:pretty">{{ p }}</p>
+      </sc-for>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding-top:24px">
+        <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Compartilhar</span>
+        <a href="https://www.linkedin.com/sharing/share-offsite/" target="_blank" rel="noopener" aria-label="Compartilhar no LinkedIn" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #E4E1D8;border-radius:2px;color:#0A1338" style-hover="border-color:#0A1338"><i class="ph-light ph-linkedin-logo" style="font-size:20px"></i></a>
+        <button onClick="{{ copyLink }}" style="display:flex;align-items:center;gap:8px;height:44px;padding:0 16px;background:none;border:1px solid #E4E1D8;border-radius:2px;cursor:pointer;font-size:14px;font-weight:600;color:#0A1338" style-hover="border-color:#0A1338" style-focus="outline:2px solid #B08A3E;outline-offset:2px"><i class="ph-light ph-link" style="font-size:18px"></i>{{ copyLabel }}</button>
+      </div>
+      <aside style="display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;padding:32px;border:1px solid #E4E1D8;border-radius:2px">
+        <div style="flex:none;position:relative;width:96px;height:120px;background:#EDEAE2"><image-slot id="team-{{ article.authorId }}" shape="rect" placeholder="Foto" style="position:absolute;inset:0"></image-slot></div>
+        <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8C6A2A">Sobre o autor</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;line-height:32px;color:#0A1338">{{ article.author }}</span>
+          <span style="font-size:14px;line-height:20px;color:#4A4F60">{{ article.authorRole }}</span>
+          <button onClick="{{ article.goAuthor }}" style="align-self:flex-start;display:flex;align-items:center;gap:4px;padding:8px 0 0;background:none;border:none;cursor:pointer;font-size:14px;font-weight:600;color:#0A1338" style-hover="opacity:0.75">Ver perfil completo<i class="ph-light ph-arrow-right" style="color:#B08A3E"></i></button>
+        </div>
+      </aside>
+    </div>
+  </article>
+  <section style="padding:clamp(64px,9vw,128px) 0;background:#F6F4EF">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:40px">
+      <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3vw,48px);line-height:1.05;color:#0A1338">Leia também</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:40px 32px">
+        <sc-for list="{{ related }}" as="a" hint-placeholder-count="3">
+          <article data-reveal="{{ a.delay }}" style="display:flex;flex-direction:column;gap:24px">
+            <div style="position:relative;aspect-ratio:3/2;background:#EDEAE2"><image-slot id="art-{{ a.id }}" shape="rect" placeholder="{{ a.imgHint }}" style="position:absolute;inset:0"></image-slot></div>
+            <button onClick="{{ a.go }}" style="display:flex;flex-direction:column;gap:12px;padding:0;background:none;border:none;text-align:left;cursor:pointer" style-hover="opacity:0.8" style-focus="outline:2px solid #B08A3E;outline-offset:4px">
+              <span style="display:flex;gap:12px;font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8C6A2A">{{ a.cat }}<span style="color:#9A9DA8">{{ a.date }}</span></span>
+              <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:36px;color:#0A1338;text-wrap:balance">{{ a.title }}</span>
+              <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Ler artigo</span>
+            </button>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+<!-- ===================== CONTATO ===================== -->
+<sc-if value="{{ isContato }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Contato" style="padding:clamp(64px,8vw,96px) 0 clamp(64px,9vw,128px)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(48px,6vw,96px)">
+      <div style="flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:32px">
+        <div data-reveal="0" style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Contato</div>
+        <h1 data-reveal="80" style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,5.6vw,72px);line-height:1;letter-spacing:-0.015em;color:#0A1338;text-wrap:balance">Conte o contexto. Nós indicamos o caminho.</h1>
+        <p data-reveal="160" style="margin:0;max-width:520px;font-size:18px;line-height:28px;color:#3D4150;text-wrap:pretty">Um sócio lê cada mensagem e retorna em até um dia útil. Tudo o que você compartilhar aqui é tratado sob sigilo profissional.</p>
+        <dl data-reveal="240" style="margin:0;display:flex;flex-direction:column">
+          <div style="display:flex;gap:16px;padding:24px 0;box-shadow:inset 0 1px 0 #E4E1D8"><i class="ph-light ph-phone" style="font-size:24px;color:#B08A3E"></i><div><dt style="font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#6B6F7B">Telefone</dt><dd style="margin:4px 0 0"><a href="tel:+551138472916" style="font-size:18px;line-height:28px;font-weight:600;color:#0A1338">+55 (11) 3847 2916</a></dd></div></div>
+          <div style="display:flex;gap:16px;padding:24px 0;box-shadow:inset 0 1px 0 #E4E1D8"><i class="ph-light ph-envelope-simple" style="font-size:24px;color:#B08A3E"></i><div><dt style="font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#6B6F7B">Email</dt><dd style="margin:4px 0 0"><a href="mailto:contato@eraadvogados.com.br" style="font-size:18px;line-height:28px;font-weight:600;color:#0A1338;word-break:break-word">contato@eraadvogados.com.br</a></dd></div></div>
+          <div style="display:flex;gap:16px;padding:24px 0;box-shadow:inset 0 1px 0 #E4E1D8,inset 0 -1px 0 #E4E1D8"><i class="ph-light ph-map-pin" style="font-size:24px;color:#B08A3E"></i><div><dt style="font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#6B6F7B">Endereço</dt><dd style="margin:4px 0 0;font-size:16px;line-height:24px;color:#0A1338">Av. Brigadeiro Faria Lima, 3477, 14º andar<br>Itaim Bibi, São Paulo, SP · 04538 133</dd><dd style="margin:8px 0 0;font-size:14px;line-height:20px;color:#6B6F7B">Segunda a sexta, das 9h às 19h</dd></div></div>
+        </dl>
+      </div>
+
+      <div data-reveal="120" style="flex:1.2 1 480px;min-width:0">
+        <sc-if value="{{ formIdle }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submit }}" novalidate="" style="display:flex;flex-direction:column;gap:24px;padding:clamp(24px,4vw,48px);background:#F6F4EF;border-radius:2px">
+            <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#0A1338">Envie sua mensagem</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px 16px">
+              <sc-for list="{{ fields }}" as="f" hint-placeholder-count="5">
+                <label style="display:flex;flex-direction:column;gap:8px">
+                  <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">{{ f.label }}<span style="color:#8C6A2A">{{ f.req }}</span></span>
+                  <input type="{{ f.type }}" name="{{ f.key }}" value="{{ f.value }}" onChange="{{ f.onChange }}" autocomplete="{{ f.auto }}" placeholder="{{ f.ph }}" aria-invalid="{{ f.invalid }}" style="width:100%;height:48px;padding:12px 16px;background:#FFFFFF;border:1px solid {{ f.border }};border-radius:2px;font-size:16px;line-height:24px;color:#0A1338;outline:none;transition:all 400ms cubic-bezier(0.32,0.72,0,1)" style-focus="border-color:#0A1338;box-shadow:0 0 0 3px rgba(176,138,62,0.28)">
+                  <sc-if value="{{ f.error }}" hint-placeholder-val="{{ false }}"><span role="alert" style="display:flex;align-items:center;gap:4px;font-size:14px;line-height:20px;color:#A3372B"><i class="ph-light ph-warning-circle"></i>{{ f.error }}</span></sc-if>
+                </label>
+              </sc-for>
+              <label style="display:flex;flex-direction:column;gap:8px">
+                <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Área de interesse</span>
+                <select value="{{ form.area }}" onChange="{{ onArea }}" style="width:100%;height:48px;padding:12px 16px;background:#FFFFFF;border:1px solid #D6D2C6;border-radius:2px;font-size:16px;line-height:24px;color:#0A1338;outline:none" style-focus="border-color:#0A1338;box-shadow:0 0 0 3px rgba(176,138,62,0.28)">
+                  <sc-for list="{{ areaOptions }}" as="o" hint-placeholder-count="5"><option value="{{ o }}">{{ o }}</option></sc-for>
+                </select>
+              </label>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Como podemos ajudar<span style="color:#8C6A2A"> *</span></span>
+              <textarea name="mensagem" value="{{ form.mensagem }}" onChange="{{ onMsg }}" rows="5" placeholder="Descreva brevemente a situação e o prazo envolvido." aria-invalid="{{ msgInvalid }}" style="width:100%;padding:12px 16px;background:#FFFFFF;border:1px solid {{ msgBorder }};border-radius:2px;font-size:16px;line-height:24px;color:#0A1338;outline:none;resize:vertical" style-focus="border-color:#0A1338;box-shadow:0 0 0 3px rgba(176,138,62,0.28)"></textarea>
+              <sc-if value="{{ errors.mensagem }}" hint-placeholder-val="{{ false }}"><span role="alert" style="display:flex;align-items:center;gap:4px;font-size:14px;line-height:20px;color:#A3372B"><i class="ph-light ph-warning-circle"></i>{{ errors.mensagem }}</span></sc-if>
+            </label>
+            <label style="display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:20px;color:#4A4F60;cursor:pointer">
+              <input type="checkbox" checked="{{ form.consent }}" onChange="{{ onConsent }}" style="width:20px;height:20px;margin:0;accent-color:#0A1338;flex:none">
+              <span>Autorizo o uso destes dados para retorno do contato, conforme a <button type="button" onClick="{{ goPrivacidade }}" style="padding:0;background:none;border:none;cursor:pointer;font-size:14px;color:#0A1338;text-decoration:underline;text-underline-offset:3px">política de privacidade</button>.</span>
+            </label>
+            <sc-if value="{{ errors.consent }}" hint-placeholder-val="{{ false }}"><span role="alert" style="margin-top:-16px;font-size:14px;line-height:20px;color:#A3372B">{{ errors.consent }}</span></sc-if>
+            <button type="submit" disabled="{{ sending }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:16px 24px;background:#0A1338;color:#FFFFFF;border:1px solid #0A1338;border-radius:2px;font-size:16px;line-height:24px;font-weight:600;cursor:pointer;opacity:{{ sendOpacity }};transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#1F2F6B;border-color:#1F2F6B" style-active="transform:scale(0.98)" style-focus="outline:2px solid #B08A3E;outline-offset:3px">{{ sendLabel }}<i class="ph-light ph-arrow-right" style="font-size:20px"></i></button>
+          </form>
+        </sc-if>
+        <sc-if value="{{ formSent }}" hint-placeholder-val="{{ false }}">
+          <div role="status" style="display:flex;flex-direction:column;gap:24px;padding:clamp(24px,4vw,48px);background:#F6F4EF;border-radius:2px">
+            <i class="ph-light ph-check-circle" style="font-size:48px;color:#0A1338"></i>
+            <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#0A1338">Mensagem recebida.</h2>
+            <p style="margin:0;font-size:16px;line-height:24px;color:#3D4150;text-wrap:pretty">Obrigado, {{ firstName }}. Um sócio da área retornará em até um dia útil pelo email {{ form.email }}.</p>
+            <button onClick="{{ resetForm }}" style="align-self:flex-start;padding:8px 0;background:none;border:none;cursor:pointer;font-size:16px;font-weight:600;color:#0A1338;text-decoration:underline;text-decoration-color:#B08A3E;text-underline-offset:6px">Enviar outra mensagem</button>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+  <section aria-label="Mapa" style="padding:0 0 clamp(64px,9vw,128px)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px)">
+      <div data-reveal="0" style="position:relative;height:clamp(320px,40vw,520px);background:#EDEAE2;border-radius:2px;overflow:hidden">
+        <iframe title="Mapa: Av. Brigadeiro Faria Lima, 3477, São Paulo" src="https://maps.google.com/maps?q=Av.%20Brigadeiro%20Faria%20Lima%2C%203477%2C%20S%C3%A3o%20Paulo&amp;z=16&amp;output=embed" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.05)"></iframe>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+<!-- ===================== PRIVACIDADE ===================== -->
+<sc-if value="{{ isPrivacidade }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Privacidade" style="padding:clamp(64px,8vw,96px) 0 clamp(64px,9vw,128px)">
+    <div style="max-width:768px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:24px">
+      <h1 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,5vw,60px);line-height:1;color:#0A1338">Política de privacidade</h1>
+      <p style="margin:0;font-size:14px;line-height:20px;color:#6B6F7B">Atualizada em 3 de março de 2026</p>
+      <p style="margin:0;font-size:18px;line-height:28px;color:#2E3242">Tratamos os dados pessoais enviados por este site apenas para responder ao contato solicitado, em conformidade com a Lei Geral de Proteção de Dados (Lei 13.709/2018) e com o dever de sigilo profissional previsto no Estatuto da Advocacia.</p>
+      <p style="margin:0;font-size:18px;line-height:28px;color:#2E3242">Não compartilhamos informações com terceiros para fins comerciais. Você pode solicitar acesso, correção ou exclusão dos seus dados a qualquer momento pelo email privacidade@eraadvogados.com.br.</p>
+      <button onClick="{{ goHome }}" style="align-self:flex-start;display:flex;align-items:center;gap:8px;padding:8px 0;background:none;border:none;cursor:pointer;font-size:16px;font-weight:600;color:#0A1338"><i class="ph-light ph-arrow-left" style="color:#B08A3E"></i>Voltar ao início</button>
+    </div>
+  </section>
+</sc-if>
+
+<!-- ===================== CTA GLOBAL ===================== -->
+<sc-if value="{{ showCtaBand }}" hint-placeholder-val="{{ true }}">
+  <section style="padding:clamp(80px,10vw,128px) 0;box-shadow:inset 0 1px 0 #E4E1D8">
+    <div data-reveal="0" style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;align-items:center;text-align:center;gap:32px">
+      <span style="width:8px;height:8px;background:#B08A3E;transform:rotate(45deg)"></span>
+      <h2 style="margin:0;max-width:760px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.6vw,60px);line-height:1.05;letter-spacing:-0.01em;color:#0A1338;text-wrap:balance">Uma primeira conversa, com quem vai cuidar do seu caso.</h2>
+      <p style="margin:0;max-width:560px;font-size:18px;line-height:28px;color:#4A4F60;text-wrap:pretty">Retorno em até um dia útil. As informações compartilhadas ficam protegidas por sigilo profissional.</p>
+      <button onClick="{{ goContato }}" style="display:inline-flex;align-items:center;gap:12px;padding:16px 24px;background:#0A1338;color:#FFFFFF;border:1px solid #0A1338;border-radius:2px;font-size:16px;line-height:24px;font-weight:600;cursor:pointer;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#1F2F6B;border-color:#1F2F6B" style-active="transform:scale(0.98)" style-focus="outline:2px solid #B08A3E;outline-offset:3px">Fale com nossos especialistas<i class="ph-light ph-arrow-right" style="font-size:20px"></i></button>
+    </div>
+  </section>
+</sc-if>
+</main><footer style="background:#F6F4EF;padding:clamp(64px,8vw,96px) 0 32px">
+  <div style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(24px,5vw,64px); display: flex; flex-direction: column; gap: clamp(48px,6vw,64px); position: relative">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:48px 40px">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <img src="assets/era-logo.png" alt="Era Advogados Associados" style="width:132px;height:auto;display:block">
+        <p style="margin:0;max-width:280px;font-size:14px;line-height:20px;color:#4A4F60">Estratégia jurídica para decisões que impactam o futuro do negócio.</p>
+        <div style="display:flex;gap:8px">
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #D6D2C6;border-radius:2px;color:#0A1338;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#0A1338;color:#FFFFFF;border-color:#0A1338"><i class="ph-light ph-linkedin-logo" style="font-size:20px"></i></a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #D6D2C6;border-radius:2px;color:#0A1338;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#0A1338;color:#FFFFFF;border-color:#0A1338"><i class="ph-light ph-instagram-logo" style="font-size:20px"></i></a>
+          <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #D6D2C6;border-radius:2px;color:#0A1338;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#0A1338;color:#FFFFFF;border-color:#0A1338"><i class="ph-light ph-youtube-logo" style="font-size:20px"></i></a>
+        </div>
+      </div>
+      <nav aria-label="Rodapé" style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8C6A2A">Navegação</span>
+        <sc-for list="{{ nav }}" as="item" hint-placeholder-count="6">
+          <button onClick="{{ item.go }}" style="align-self:flex-start;padding:0;background:none;border:none;cursor:pointer;font-size:14px;line-height:20px;color:#0A1338" style-hover="text-decoration:underline;text-underline-offset:4px">{{ item.label }}</button>
+        </sc-for>
+      </nav>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;line-height:20px;color:#0A1338">
+        <span style="font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8C6A2A">Contato</span>
+        <a href="tel:+551138472916" style="color:#0A1338">+55 (11) 3847 2916</a>
+        <a href="mailto:contato@eraadvogados.com.br" style="color:#0A1338;word-break:break-word">contato@eraadvogados.com.br</a>
+        <span style="color:#4A4F60">Av. Brigadeiro Faria Lima, 3477, 14º andar<br>Itaim Bibi, São Paulo, SP</span>
+        <span style="color:#4A4F60">SHS Quadra 6, Bloco E, sala 1108<br>Brasília, DF</span>
+      </div>
+      <div style="position:relative;min-height:220px;background:#EDEAE2;border-radius:2px;overflow:hidden">
+        <iframe title="Mapa do escritório em São Paulo" src="https://maps.google.com/maps?q=Av.%20Brigadeiro%20Faria%20Lima%2C%203477%2C%20S%C3%A3o%20Paulo&amp;z=15&amp;output=embed" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.05)"></iframe>
+      </div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding-top: 24px; box-shadow: inset 0 1px 0 #D6D2C6; font-size: 12px; line-height: 16px; color: #6B6F7B; position: relative">
+      <span>© 2026 Era Advogados Associados · OAB/SP 21.847</span>
+      <button onClick="{{ goPrivacidade }}" style="padding:0;background:none;border:none;cursor:pointer;font-size:12px;color:#4A4F60" style-hover="color:#0A1338">Termos de uso</button><button onClick="{{ goPrivacidade }}" style="padding:0;background:none;border:none;cursor:pointer;font-size:12px;color:#4A4F60" style-hover="color:#0A1338">Política de privacidade</button><img src="assets/signature.png" alt="Era Advogados Associados" style="width: 140px; height: 34px; display: block; object-fit: cover">
+    </div>
+    <sc-if value="{{ showSticky }}" hint-placeholder-val="{{ false }}"><div style="height:64px"></div></sc-if>
+  </div>
+</footer>
+
+
+
+<sc-if value="{{ showSticky }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;gap:8px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(255,255,255,0.88);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);box-shadow:0 -1px 0 rgba(10,19,56,0.08)">
+    <button onClick="{{ goContato }}" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;height:48px;background:#0A1338;color:#FFFFFF;border:none;border-radius:2px;font-size:16px;font-weight:600;cursor:pointer" style-active="transform:scale(0.98)">Fale com um especialista</button>
+    <a href="tel:+551138472916" aria-label="Ligar para o escritório" style="flex:none;display:flex;align-items:center;justify-content:center;width:48px;height:48px;border:1px solid #0A1338;border-radius:2px;color:#0A1338"><i class="ph-light ph-phone" style="font-size:22px"></i></a>
+  </div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startPage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;inicio&quot;,&quot;escritorio&quot;,&quot;areas&quot;,&quot;area&quot;,&quot;equipe&quot;,&quot;artigos&quot;,&quot;artigo&quot;,&quot;contato&quot;],&quot;default&quot;:&quot;inicio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Navegação&quot;},&quot;stickyCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mobile&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Animação&quot;}}">
+const AREAS = [
+  { slug:'empresarial', n:'01', name:'Direito Empresarial', short:'direito empresarial', icon:'ph-buildings',
+    imgHint:'Sala de conselho ou mesa de negociação',
+    summary:'Estruturação societária, contratos estratégicos, fusões e aquisições e governança para empresas e grupos econômicos.',
+    lead:'Assessoramos sócios, conselhos e diretorias nas decisões que definem a estrutura, o controle e o crescimento da empresa.',
+    headline:'Estrutura societária é decisão estratégica, não formalidade.',
+    desc:['A forma como uma empresa está organizada determina quem decide, como o risco se distribui e quanto ela vale numa negociação. Atuamos na construção e revisão dessas estruturas com a mesma atenção que o cliente dedica ao próprio negócio.','Nosso trabalho vai da constituição de holdings e reorganizações societárias à condução de fusões, aquisições e entrada de investidores, sempre com leitura financeira e tributária integrada.'],
+    services:['Reorganizações societárias e holdings','Fusões, aquisições e joint ventures','Acordos de sócios e de acionistas','Contratos empresariais complexos','Governança corporativa e conselhos','Sucessão em empresas familiares'],
+    steps:[{t:'Diagnóstico da estrutura',d:'Mapeamos participações, contratos e pontos de conflito antes de propor qualquer mudança.'},{t:'Desenho da solução',d:'Apresentamos alternativas com impacto societário, tributário e de governança lado a lado.'},{t:'Execução e acompanhamento',d:'Conduzimos negociação, documentação e registros, e seguimos presentes nas decisões seguintes.'}],
+    team:[0,3] },
+  { slug:'trabalhista', n:'02', name:'Direito Trabalhista', short:'direito trabalhista', icon:'ph-users-three',
+    imgHint:'Ambiente corporativo, equipe em trabalho',
+    summary:'Consultoria preventiva, relações com executivos, reestruturações e contencioso estratégico para operações relevantes.',
+    lead:'Tratamos a relação de trabalho como parte da estratégia: prevenindo passivos, estruturando contratações sensíveis e defendendo a empresa quando necessário.',
+    headline:'Passivo trabalhista se previne na política, não na audiência.',
+    desc:['Empresas de médio e grande porte acumulam riscos trabalhistas em decisões cotidianas: modelos de contratação, políticas de remuneração, jornadas e desligamentos. Nossa atuação começa na revisão dessas práticas, com recomendações objetivas para o RH e a diretoria.','No contencioso, priorizamos teses consistentes e acordos bem calculados, com relatórios periódicos que permitem ao departamento jurídico provisionar com segurança.'],
+    services:['Contratos e desligamento de executivos','Remuneração variável, bônus e stock options','Reestruturações e reduções de quadro','Auditoria trabalhista preventiva','Negociação com sindicatos','Contencioso estratégico e de massa'],
+    steps:[{t:'Auditoria de práticas',d:'Revisamos contratos, políticas e histórico de ações para identificar onde o risco se concentra.'},{t:'Plano de adequação',d:'Priorizamos correções por impacto financeiro e apoiamos RH e gestores na implementação.'},{t:'Gestão do contencioso',d:'Conduzimos as ações com teses alinhadas à estratégia da empresa e visibilidade total para o jurídico interno.'}],
+    team:[2,5] },
+  { slug:'tributario', n:'03', name:'Direito Tributário', short:'direito tributário', icon:'ph-calculator',
+    imgHint:'Análise de documentos e relatórios financeiros',
+    summary:'Planejamento tributário, contencioso administrativo e judicial e adaptação à reforma tributária para grupos econômicos.',
+    lead:'Unimos leitura técnica da legislação e compreensão da operação para reduzir a carga tributária dentro da lei e sustentar as posições da empresa perante o fisco.',
+    headline:'A economia tributária mais segura é a que resiste à fiscalização.',
+    desc:['Cada operação tem consequências tributárias que nem sempre aparecem no primeiro desenho. Trabalhamos junto às áreas fiscal e financeira para estruturar operações, revisar créditos e avaliar riscos antes que se tornem autuações.','Na transição da reforma tributária sobre o consumo, apoiamos empresas na revisão de contratos, preços e cadeias de fornecimento para o novo modelo de IBS e CBS.'],
+    services:['Planejamento tributário de grupos econômicos','Reforma tributária: IBS, CBS e transição','Contencioso administrativo e judicial','Recuperação e revisão de créditos','Transação tributária e parcelamentos','Tributação de operações de M&A'],
+    steps:[{t:'Leitura da operação',d:'Entendemos o fluxo real de receitas, custos e estrutura antes de analisar tributos isoladamente.'},{t:'Parecer e estratégia',d:'Entregamos posições fundamentadas, com grau de risco explícito para cada alternativa.'},{t:'Defesa das posições',d:'Acompanhamos fiscalizações e conduzimos a defesa nas esferas administrativa e judicial.'}],
+    team:[1,4] },
+  { slug:'assessoria', n:'04', name:'Assessoria Jurídica', short:'assessoria jurídica', icon:'ph-compass',
+    imgHint:'Sócio em conversa com diretoria do cliente',
+    summary:'Apoio contínuo à diretoria e ao departamento jurídico, com um sócio responsável que conhece a empresa por dentro.',
+    lead:'Funcionamos como extensão do jurídico interno, ou como o próprio departamento jurídico da empresa, com respostas rápidas e visão de negócio.',
+    headline:'Um parceiro jurídico que participa antes da decisão, não depois.',
+    desc:['Muitas decisões relevantes não chegam a virar um projeto jurídico: são negociações, respostas a parceiros, ajustes de contrato. Na assessoria contínua, estamos presentes nesse dia a dia, com um sócio responsável e uma equipe que já conhece o histórico da empresa.','O modelo é definido com cada cliente, com escopo, prazos de resposta e relatórios mensais que dão à diretoria clareza sobre o que foi feito e o que está em aberto.'],
+    services:['Assessoria contínua à diretoria','Revisão e negociação de contratos','Compliance e programas de integridade','LGPD e proteção de dados','Due diligence e auditorias jurídicas','Apoio a conselhos e comitês'],
+    steps:[{t:'Imersão',d:'Conhecemos a operação, os contratos vigentes e as pessoas que tomam as decisões.'},{t:'Modelo de atendimento',d:'Definimos escopo, canais, prazos de resposta e formato dos relatórios periódicos.'},{t:'Presença contínua',d:'Acompanhamos o dia a dia e antecipamos os temas que exigem atenção da diretoria.'}],
+    team:[3,0] }
+];
+
+const TEAM = [
+  { id:'helena', name:'Helena Rocha Albuquerque', first:'Helena', role:'Sócia fundadora', area:'Direito Empresarial e M&A', oab:'OAB/SP 187.403', years:'22 anos de atuação', email:'helena.albuquerque@eraadvogados.com.br',
+    quote:'O cliente não precisa de um parecer longo. Precisa saber qual decisão tomar e qual risco está assumindo.',
+    bio:['Fundou o Era Advogados em 2009, depois de doze anos na área societária de escritórios de grande porte e dois anos como diretora jurídica de um grupo industrial do setor de embalagens. É essa passagem pelo lado da empresa que orienta a forma como o escritório trabalha.','Conduz reorganizações societárias, operações de fusão e aquisição e processos de sucessão em empresas familiares. Integra os conselhos consultivos de duas companhias de capital fechado.'],
+    edu:['Mestre em Direito Comercial, USP','LL.M. em Corporate Law, Columbia','Direito, PUC São Paulo'], rec:['Leaders League 2025, Societário','Conselheira certificada IBGC'], lang:'Português, inglês e espanhol' },
+  { id:'ricardo', name:'Ricardo Menezes Prado', first:'Ricardo', role:'Sócio', area:'Direito Tributário', oab:'OAB/SP 204.118', years:'19 anos de atuação', email:'ricardo.prado@eraadvogados.com.br',
+    quote:'Economia tributária que não se sustenta numa fiscalização é só um passivo adiado.',
+    bio:['Atuou por nove anos na área tributária de uma das maiores consultorias do país antes de se juntar ao Era Advogados em 2013, quando estruturou a prática tributária consultiva e contenciosa do escritório.','Lidera projetos de planejamento para grupos econômicos e coordena o núcleo dedicado à transição da reforma tributária. É professor convidado em cursos de especialização em Direito Tributário.'],
+    edu:['Doutor em Direito Tributário, PUC São Paulo','Especialista em Tributação, IBET','Direito, Mackenzie'], rec:['Análise Advocacia 2025, Tributário','Autor de Tributação de Grupos Econômicos'], lang:'Português e inglês' },
+  { id:'marina', name:'Marina Tavares Kuhn', first:'Marina', role:'Sócia', area:'Direito Trabalhista', oab:'OAB/SP 231.560', years:'16 anos de atuação', email:'marina.kuhn@eraadvogados.com.br',
+    quote:'Boa parte do contencioso trabalhista nasce de uma política mal escrita.',
+    bio:['Especialista em relações de trabalho da alta gestão, assessora empresas na contratação, remuneração e desligamento de executivos, e em reestruturações com impacto relevante no quadro de pessoal.','Antes do Era, foi gerente jurídica trabalhista de uma rede varejista com mais de 11 mil empregados, experiência que a aproxima da rotina de RH e das áreas de operação.'],
+    edu:['Mestre em Direito do Trabalho, USP','Especialista em Relações Sindicais, FGV','Direito, UFRGS'], rec:['Análise Advocacia 2024, Trabalhista','Membro da AASP'], lang:'Português, inglês e alemão' },
+  { id:'eduardo', name:'Eduardo Sampaio Lins', first:'Eduardo', role:'Sócio fundador', area:'Assessoria Jurídica e Contratos', oab:'OAB/SP 198.772', years:'21 anos de atuação', email:'eduardo.lins@eraadvogados.com.br',
+    quote:'Assessorar bem é estar na conversa antes de a decisão ser tomada.',
+    bio:['Cofundador do escritório, coordena a assessoria jurídica contínua e a área de contratos. É sócio responsável por clientes dos setores de saúde, logística e tecnologia.','Tem formação complementar em finanças corporativas, o que aproxima sua leitura jurídica da linguagem de CFOs e conselhos de administração.'],
+    edu:['MBA em Finanças Corporativas, Insper','Especialista em Contratos, FGV','Direito, USP'], rec:['Leaders League 2025, Contratos','Coordenador do comitê jurídico da Amcham'], lang:'Português, inglês e francês' },
+  { id:'camila', name:'Camila Figueiredo Assunção', first:'Camila', role:'Advogada sênior', area:'Direito Tributário', oab:'OAB/SP 312.905', years:'11 anos de atuação', email:'camila.assuncao@eraadvogados.com.br',
+    quote:'Toda autuação revela algo sobre a operação, e a defesa começa por entender isso.',
+    bio:['Atua no contencioso tributário administrativo e judicial e em projetos de revisão de créditos de PIS, Cofins e ICMS para empresas industriais.','Coordena o acompanhamento de transações tributárias com a PGFN e procuradorias estaduais.'],
+    edu:['Mestre em Direito Tributário, FGV','Direito, PUC Campinas'], rec:['Autora em Revista Dialética de Direito Tributário'], lang:'Português e inglês' },
+  { id:'thiago', name:'Thiago Barreto Nogueira', first:'Thiago', role:'Advogado sênior', area:'Direito Trabalhista', oab:'OAB/SP 356.214', years:'9 anos de atuação', email:'thiago.nogueira@eraadvogados.com.br',
+    quote:'Prevenção só funciona quando o gestor entende a regra.',
+    bio:['Conduz o contencioso trabalhista estratégico do escritório e auditorias preventivas em empresas com operações em vários estados.','Tem atuação destacada em negociações coletivas e na revisão de programas de remuneração variável.'],
+    edu:['Especialista em Direito do Trabalho, PUC São Paulo','Direito, Mackenzie'], rec:['Membro do IASP'], lang:'Português e espanhol' }
+];
+
+const ARTICLES = [
+  { id:'a1', cat:'Tributário', authorId:'ricardo', date:'14 set 2026', read:'9 min', video:true,
+    title:'Reforma tributária: o que muda no planejamento de grupos econômicos em 2027',
+    excerpt:'Com o início da cobrança da CBS, estruturas pensadas para o modelo antigo precisam ser revistas. Mostramos por onde começar.',
+    imgHint:'Detalhe de documentos fiscais sobre mesa',
+    sub:'Onde as estruturas atuais deixam de fazer sentido',
+    paras:['A partir de 2027, a CBS substitui PIS e Cofins e inaugura, na prática, o novo modelo de tributação sobre o consumo. Para grupos econômicos, a mudança vai além da alíquota: altera a lógica de créditos, a formação de preço e o papel de cada empresa dentro do grupo.','Estruturas criadas para aproveitar diferenças entre regimes, como centrais de compras e prestadoras de serviço intragrupo, podem perder a racionalidade econômica ou, pior, gerar custo adicional durante a transição.','O primeiro passo é mapear o fluxo de operações entre as empresas do grupo e simular o efeito do crédito amplo em cada elo. Em muitos casos, a simplificação da estrutura passa a ser a alternativa mais eficiente.','Contratos de longo prazo também merecem atenção. Cláusulas de reajuste e de repasse de tributos escritas para o sistema atual podem gerar desequilíbrio relevante e disputas com fornecedores e clientes.','A transição exige decisão da diretoria em 2026, e não apenas ajuste da área fiscal em 2027. Quem se antecipa ganha tempo para renegociar e reorganizar com calma.'],
+    quote:'A transição exige decisão da diretoria agora, e não apenas ajuste da área fiscal depois.',
+    videoCaption:'Ricardo Menezes Prado comenta os três pontos de atenção para conselhos de administração. Duração: 6 min 42 s.' },
+  { id:'a2', cat:'Trabalhista', authorId:'marina', date:'02 set 2026', read:'7 min',
+    title:'Contratação de executivos como pessoa jurídica: onde está o limite hoje',
+    excerpt:'As decisões recentes dos tribunais superiores mudaram o cenário, mas não eliminaram o risco. O que avaliar antes de estruturar.',
+    imgHint:'Executivo em reunião, ambiente corporativo',
+    sub:'O que os tribunais têm observado',
+    paras:['A contratação de executivos por meio de pessoa jurídica ganhou força após decisões que reconheceram a validade de formas alternativas de contratação. Ainda assim, o reconhecimento de vínculo continua possível quando a realidade contradiz o contrato.','Subordinação direta, exclusividade de fato e ausência de autonomia sobre a própria agenda seguem sendo os fatores mais examinados.','Na prática, o risco se concentra menos no contrato e mais na rotina: participação em avaliações de desempenho, uso de benefícios de empregados e controle de jornada são sinais que pesam contra a empresa.','Antes de adotar o modelo, recomendamos avaliar a função, o grau de autonomia real e a forma de remuneração, documentando as razões da escolha.'],
+    quote:'O risco raramente está no contrato. Está na rotina que o contradiz.' },
+  { id:'a3', cat:'Empresarial', authorId:'helena', date:'21 ago 2026', read:'8 min',
+    title:'Acordo de sócios em empresas familiares: cláusulas que evitam o impasse',
+    excerpt:'Sucessão, saída de sócios e regras de voto definem se a empresa atravessa a próxima geração. Veja o que não pode faltar.',
+    imgHint:'Mesa de reunião com contrato e caneta',
+    sub:'As cláusulas que mais evitam conflitos',
+    paras:['Em empresas familiares, o acordo de sócios costuma ser adiado até o momento em que já existe um conflito. É justamente quando ele fica mais difícil de negociar.','Um bom acordo antecipa as situações de maior tensão: entrada de herdeiros, divergência sobre distribuição de lucros, saída de um sócio e profissionalização da gestão.','Mecanismos de saída com critério de avaliação definido previamente, quóruns qualificados para decisões estratégicas e regras claras para a participação de familiares na gestão são os pontos que mais evitam impasses.','O acordo deve conversar com o estatuto ou contrato social e com o planejamento sucessório dos sócios, sob pena de criar obrigações que não se sustentam.'],
+    quote:'O melhor momento para negociar um acordo de sócios é quando ninguém acha que precisa dele.' },
+  { id:'a4', cat:'Assessoria', authorId:'eduardo', date:'06 ago 2026', read:'6 min',
+    title:'Due diligence antes da assinatura: o que o conselho precisa ver',
+    excerpt:'Relatórios extensos escondem o essencial. Como organizar achados para que o conselho decida com clareza sobre preço e garantias.',
+    imgHint:'Pasta de documentos em sala de reunião',
+    sub:'Do relatório técnico à decisão',
+    paras:['A due diligence costuma gerar centenas de páginas. Para o conselho, porém, a pergunta é simples: o que muda no preço, nas garantias ou na decisão de seguir com a operação.','Organizamos os achados em três grupos: impeditivos, ajustáveis por preço ou garantia, e informativos. Essa separação permite ao conselho concentrar a discussão onde ela importa.','Também recomendamos que cada contingência relevante venha acompanhada de uma estimativa de exposição e de uma proposta de tratamento contratual.','Um relatório executivo de poucas páginas, construído a partir dessa lógica, costuma ser mais útil para a decisão do que o documento completo.'],
+    quote:'O conselho não precisa ler tudo. Precisa ver o que muda a decisão.' },
+  { id:'a5', cat:'Tributário', authorId:'camila', date:'18 jul 2026', read:'6 min',
+    title:'Transação tributária: quando negociar com a PGFN faz sentido',
+    excerpt:'Descontos relevantes, mas com contrapartidas. Os critérios que usamos para recomendar ou não a adesão.',
+    imgHint:'Calculadora e relatórios sobre mesa',
+    sub:'Critérios para decidir',
+    paras:['A transação tributária se consolidou como instrumento para regularizar débitos com descontos expressivos em multas e juros. Mas a adesão implica confissão da dívida e desistência de discussões judiciais.','Por isso, a decisão depende da qualidade das teses em discussão, do fluxo de caixa da empresa e do impacto da regularidade fiscal em contratos e financiamentos.','Quando a tese tem baixa probabilidade de êxito, a transação tende a ser vantajosa. Quando a tese é forte, pode valer a pena manter a discussão e negociar apenas parte do passivo.','Uma análise por débito, e não pelo total, costuma revelar a melhor combinação entre negociar e litigar.'],
+    quote:'A melhor transação é a que resulta de uma análise por débito, e não pelo total.' },
+  { id:'a6', cat:'Trabalhista', authorId:'thiago', date:'29 jun 2026', read:'5 min',
+    title:'Programas de remuneração variável e o risco de passivo oculto',
+    excerpt:'Bônus e PLR mal estruturados podem gerar reflexos trabalhistas e previdenciários. Os ajustes mais comuns que recomendamos.',
+    imgHint:'Gráficos de desempenho em tela, escritório',
+    sub:'Os ajustes mais frequentes',
+    paras:['Programas de remuneração variável são ferramentas importantes de retenção. Quando mal estruturados, no entanto, podem ser reconhecidos como salário, com reflexos em férias, décimo terceiro e contribuições previdenciárias.','Os pontos mais sensíveis são a periodicidade dos pagamentos, a clareza das metas e a formalização prévia das regras.','No caso da PLR, a negociação com a comissão de empregados ou com o sindicato e o respeito aos limites de periodicidade são condições essenciais para a isenção.','Uma revisão anual do programa, antes do início do ciclo de metas, evita a maior parte dos riscos.'],
+    quote:'Remuneração variável sem regra clara vira salário aos olhos da Justiça.' }
+];
+
+const TIMELINE = [
+  { y:'2009', t:'Fundação', d:'Helena Rocha Albuquerque e Eduardo Sampaio Lins fundam o escritório com foco em assessoria societária e contratual para empresas familiares.' },
+  { y:'2013', t:'Prática tributária', d:'Com a chegada de Ricardo Menezes Prado, o escritório estrutura sua área tributária consultiva e contenciosa.' },
+  { y:'2016', t:'Nova sede na Faria Lima', d:'A mudança para o Itaim Bibi aproxima o escritório de seus clientes e amplia a estrutura para 22 profissionais.' },
+  { y:'2019', t:'Trabalhista estratégico', d:'Marina Tavares Kuhn assume a prática trabalhista, voltada a executivos, reestruturações e prevenção de passivos.' },
+  { y:'2022', t:'Atuação integrada', d:'Criação dos núcleos multidisciplinares por cliente, com um sócio responsável único pelo relacionamento.' },
+  { y:'2025', t:'Escritório em Brasília', d:'Abertura da unidade no Distrito Federal para acompanhamento de tribunais superiores e órgãos reguladores.' }
+];
+
+const VALUES = [
+  { t:'Sigilo', d:'Discrição absoluta sobre cada cliente e cada informação.' },
+  { t:'Responsabilidade', d:'Um sócio responde pessoalmente por cada trabalho entregue.' },
+  { t:'Clareza', d:'Recomendações objetivas, com riscos explícitos.' },
+  { t:'Proximidade', d:'Conhecemos a empresa por dentro, não só o processo.' },
+  { t:'Rigor técnico', d:'Estudo constante e posições bem fundamentadas.' }
+];
+
+const DIFFS = [
+  { n:'01', t:'Sócios na linha de frente', d:'Cada cliente tem um sócio responsável que participa das reuniões, revisa o trabalho e responde pessoalmente pelo resultado.' },
+  { n:'02', t:'Experiência do lado da empresa', d:'Nossos sócios já ocuparam cargos de direção jurídica. Entendemos orçamento, prazos e a pressão de quem precisa decidir.' },
+  { n:'03', t:'Leitura integrada', d:'Societário, tributário e trabalhista analisam juntos cada decisão relevante, porque é assim que as consequências aparecem.' },
+  { n:'04', t:'Atendimento personalizado', d:'Escopo, prazos de resposta e relatórios definidos com cada cliente, sem pacotes padronizados.' }
+];
+
+const TAGLINE = ['Antecipar o risco custa menos do que resolvê-lo.', 'Por isso, nosso trabalho começa antes do problema.'];
+const NAV = [['inicio','Início'],['escritorio','O Escritório'],['areas','Áreas de atuação'],['equipe','Equipe'],['artigos','Artigos'],['contato','Contato']];
+const FILTERS = ['Todos','Empresarial','Trabalhista','Tributário','Assessoria'];
+const FIELDS = [
+  { key:'nome', label:'Nome completo', type:'text', auto:'name', ph:'', req:true },
+  { key:'empresa', label:'Empresa', type:'text', auto:'organization', ph:'', req:true },
+  { key:'cargo', label:'Cargo', type:'text', auto:'organization-title', ph:'Ex.: Diretora financeira', req:false },
+  { key:'email', label:'Email corporativo', type:'email', auto:'email', ph:'nome@empresa.com.br', req:true },
+  { key:'telefone', label:'Telefone', type:'tel', auto:'tel', ph:'(11) 9 0000 0000', req:false }
+];
+const EMPTY_FORM = { nome:'', empresa:'', cargo:'', email:'', telefone:'', area:'Ainda não sei', mensagem:'', consent:false };
+const EASE = 'cubic-bezier(0.32,0.72,0,1)';
+
+class Component extends DCLogic {
+  state = { page: this.props.startPage ?? 'inicio', area: 0, member: 0, article: 0, filter: 'Todos', menu: false,
+    w: typeof window !== 'undefined' ? window.innerWidth : 1440, form: { ...EMPTY_FORM }, errors: {}, status: 'idle', copied: false };
+  featureRef = React.createRef();
+
+  componentDidMount() {
+    this.onResize = () => this.setState({ w: document.documentElement.clientWidth || window.innerWidth });
+    window.addEventListener('resize', this.onResize);
+    this.mqs = ['(min-width: 768px)', '(min-width: 1100px)'].map(q => { const m = window.matchMedia(q); m.addEventListener('change', this.onResize); return m; });
+    this.ro = new ResizeObserver(() => this.recheck && this.recheck());
+    this.ro.observe(document.documentElement);
+    this.recheck = () => { const w = document.documentElement.clientWidth || window.innerWidth; if (w !== this.state.w) this.setState({ w }); };
+    this.recheckTimers = [50, 250, 800, 1600].map(t => setTimeout(this.recheck, t));
+    document.addEventListener('visibilitychange', this.recheck);
+    window.addEventListener('load', this.recheck);
+    this.onKey = (e) => { if (e.key === 'Escape' && this.state.menu) this.setState({ menu: false }); };
+    window.addEventListener('keydown', this.onKey);
+    setTimeout(() => this.setupReveal(), 60);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    this.ro && this.ro.disconnect();
+    (this.recheckTimers || []).forEach(clearTimeout);
+    document.removeEventListener('visibilitychange', this.recheck);
+    window.removeEventListener('load', this.recheck);
+    (this.mqs || []).forEach(m => m.removeEventListener('change', this.onResize));
+    window.removeEventListener('keydown', this.onKey);
+    if (this.onScrollCheck) window.removeEventListener('scroll', this.onScrollCheck);
+    clearTimeout(this.revealFallback);
+    this.io && this.io.disconnect(); this.wio && this.wio.disconnect();
+  }
+  componentDidUpdate(pp, ps) {
+    const s = this.state;
+    if (ps.page !== s.page || ps.area !== s.area || ps.article !== s.article || ps.filter !== s.filter || ps.status !== s.status)
+      requestAnimationFrame(() => this.setupReveal());
+    if (pp.startPage !== this.props.startPage && this.props.startPage) this.go(this.props.startPage);
+    if (window.innerWidth >= 1100 && s.menu) this.setState({ menu: false });
+  }
+  setupReveal() {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches || this.props.motion === false;
+    const els = [...document.querySelectorAll('[data-reveal]:not([data-shown])')];
+    const words = [...document.querySelectorAll('[data-word]')];
+    if (reduce) { els.forEach(e => { e.dataset.shown = '1'; }); words.forEach(w => { w.style.color = '#FFFFFF'; }); return; }
+    const show = (t) => { if (t.dataset.shown === '1') return; t.style.opacity = '1'; t.style.transform = 'none'; t.style.filter = 'none'; t.dataset.shown = '1'; if (this.io) this.io.unobserve(t); };
+    if (!this.io) this.io = new IntersectionObserver((ents) => ents.forEach(en => { if (en.isIntersecting) show(en.target); }), { rootMargin: '0px 0px -6% 0px' });
+    requestAnimationFrame(() => requestAnimationFrame(() => els.forEach(e => { if (e.getBoundingClientRect().top < window.innerHeight) show(e); })));
+    clearTimeout(this.revealFallback);
+    this.revealFallback = setTimeout(() => document.querySelectorAll('[data-shown="p"]').forEach(e => { if (document.hidden || e.getBoundingClientRect().top < window.innerHeight * 1.2) show(e); }), 1200);
+    if (!this.onScrollCheck) {
+      let raf = 0;
+      this.onScrollCheck = () => { if (raf) return; raf = requestAnimationFrame(() => { raf = 0; document.querySelectorAll('[data-shown="p"]').forEach(e => { if (e.getBoundingClientRect().top < window.innerHeight * 0.94) show(e); }); }); };
+      window.addEventListener('scroll', this.onScrollCheck, { passive: true });
+    }
+    els.forEach(e => {
+      const d = parseInt(e.dataset.reveal || '0', 10) || 0;
+      e.style.transition = `opacity 900ms ${EASE} ${d}ms, transform 900ms ${EASE} ${d}ms, filter 900ms ${EASE} ${d}ms`;
+      e.style.opacity = '0'; e.style.transform = 'translateY(64px)'; e.style.filter = 'blur(12px)';
+      e.dataset.shown = 'p';
+      void e.offsetHeight;
+      this.io.observe(e);
+    });
+    if (this.wio) this.wio.disconnect();
+    this.wio = new IntersectionObserver((ents) => ents.forEach(en => {
+      if (en.isIntersecting || en.boundingClientRect.bottom < 0) en.target.style.color = '#FFFFFF';
+      else if (en.boundingClientRect.top > 0) en.target.style.color = 'rgba(255,255,255,0.28)';
+    }), { rootMargin: '0px 0px -38% 0px', threshold: 1 });
+    words.forEach(w => this.wio.observe(w));
+  }
+  go(page, extra = {}) {
+    this.setState({ page, menu: false, ...extra });
+    window.scrollTo(0, 0);
+  }
+  validate(form) {
+    const e = {};
+    if (!form.nome.trim()) e.nome = 'Informe seu nome.';
+    if (!form.empresa.trim()) e.empresa = 'Informe a empresa.';
+    if (!form.email.trim()) e.email = 'Informe um email para retorno.';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(form.email.trim())) e.email = 'Este email parece incompleto.';
+    if (form.mensagem.trim().length < 12) e.mensagem = 'Descreva a situação em pelo menos uma frase.';
+    if (!form.consent) e.consent = 'É preciso autorizar o uso dos dados para retorno.';
+    return e;
+  }
+  renderVals() {
+    const s = this.state;
+    const vw = s.w;
+    const desktop = vw >= 1100, mobile = vw < 768;
+    const setF = (k, v) => this.setState(st => {
+      const form = { ...st.form, [k]: v }; const errors = { ...st.errors };
+      if (errors[k]) { const ne = this.validate(form); if (ne[k]) errors[k] = ne[k]; else delete errors[k]; }
+      return { form, errors };
+    });
+    const nav = NAV.map(([id, label], i) => {
+      const active = s.page === id || (id === 'areas' && s.page === 'area') || (id === 'artigos' && s.page === 'artigo');
+      return { id, label, go: () => this.go(id), color: active ? '#0A1338' : '#4A4F60', line: active ? 1 : 0, aria: active ? 'page' : undefined,
+        mo: s.menu ? 1 : 0, mty: s.menu ? '0px' : '48px', delay: s.menu ? `${100 + i * 50}ms` : '0ms' };
+    });
+    const areas = AREAS.map((a, i) => ({ ...a, top: a.services.slice(0, 4), delay: String(i * 90), go: () => this.go('area', { area: i }),
+      steps: a.steps.map((st, j) => ({ ...st, n: '0' + (j + 1), delay: String(j * 100) })) }));
+    const area = areas[s.area];
+    const areaTabs = areas.map((a, i) => ({ name: a.name, go: a.go, sel: i === s.area, bg: i === s.area ? '#0A1338' : '#FFFFFF', fg: i === s.area ? '#FFFFFF' : '#0A1338', bd: i === s.area ? '#0A1338' : '#E4E1D8' }));
+    const selectMember = (i) => {
+      this.setState({ member: i });
+      const el = this.featureRef.current;
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 104, behavior: 'smooth' });
+    };
+    const team = TEAM.map((m, i) => ({ ...m, delay: String((i % 3) * 90), sel: i === s.member, ring: i === s.member ? '#B08A3E' : 'transparent',
+      cta: i === s.member ? 'Perfil em destaque' : 'Ver perfil completo', select: () => selectMember(i) }));
+    const areaTeam = area.team.map(i => ({ ...TEAM[i], go: () => this.go('equipe', { member: i }) }));
+    const catOf = { Empresarial: 'Empresarial', Trabalhista: 'Trabalhista', Tributário: 'Tributário', Assessoria: 'Assessoria' };
+    const articles = ARTICLES.map((a, i) => {
+      const ai = TEAM.findIndex(t => t.id === a.authorId);
+      return { ...a, author: TEAM[ai].name, authorRole: `${TEAM[ai].role} · ${TEAM[ai].area}`, delay: String((i % 3) * 90),
+        go: () => this.go('artigo', { article: i }), goAuthor: () => this.go('equipe', { member: ai }),
+        bodyA: a.paras.slice(0, 2), bodyB: a.paras.slice(2, 3), bodyC: a.paras.slice(3) };
+    });
+    const filtered = s.filter === 'Todos' ? articles : articles.filter(a => a.cat === catOf[s.filter]);
+    const article = articles[s.article];
+    const related = articles.filter((a, i) => i !== s.article).sort((a, b) => (b.cat === article.cat) - (a.cat === article.cat)).slice(0, 3)
+      .map((a, i) => ({ ...a, delay: String(i * 90) }));
+    const fields = FIELDS.map(f => ({ ...f, req: f.req ? ' *' : '', value: s.form[f.key], error: s.errors[f.key] || '', invalid: !!s.errors[f.key],
+      border: s.errors[f.key] ? '#A3372B' : '#D6D2C6', onChange: (e) => setF(f.key, e.target.value) }));
+    const sending = s.status === 'sending';
+    return {
+      desktop, compact: !desktop, menu: s.menu, menuLabel: s.menu ? 'Fechar menu' : 'Abrir menu', menuHidden: !s.menu,
+      l1: s.menu ? 'translateY(4px) rotate(45deg)' : 'none', l2: s.menu ? 'translateY(-4px) rotate(-45deg)' : 'none',
+      menuOp: s.menu ? 1 : 0, menuVis: s.menu ? 'visible' : 'hidden',
+      toggleMenu: () => this.setState(st => ({ menu: !st.menu })),
+      nav, navTop: nav.filter(n => n.id !== 'contato'),
+      isInicio: s.page === 'inicio', isEscritorio: s.page === 'escritorio', isAreas: s.page === 'areas', isArea: s.page === 'area',
+      isEquipe: s.page === 'equipe', isArtigos: s.page === 'artigos', isArtigo: s.page === 'artigo', isContato: s.page === 'contato', isPrivacidade: s.page === 'privacidade',
+      showCtaBand: !['contato', 'area', 'privacidade'].includes(s.page),
+      showSticky: mobile && s.page !== 'contato' && (this.props.stickyCta ?? true),
+      goHome: () => this.go('inicio'), goEscritorio: () => this.go('escritorio'), goAreas: () => this.go('areas'),
+      goArtigos: () => this.go('artigos'), goContato: () => this.go('contato'), goPrivacidade: () => this.go('privacidade'),
+      areas, area, areaTabs, areaTeam,
+      taglineLines: TAGLINE.map(l => ({ words: l.split(' ').map(w => ({ w })) })),
+      diffs: DIFFS.map((d, i) => ({ ...d, delay: String(i * 80) })),
+      values: VALUES, timeline: TIMELINE,
+      team, member: TEAM[s.member], featureRef: this.featureRef,
+      recent: articles.slice(0, 3),
+      filters: FILTERS.map(f => ({ label: f, sel: f === s.filter, go: () => this.setState({ filter: f }), bg: f === s.filter ? '#0A1338' : '#FFFFFF', fg: f === s.filter ? '#FFFFFF' : '#0A1338', bd: f === s.filter ? '#0A1338' : '#E4E1D8' })),
+      featured: filtered[0] || null, restArticles: filtered.slice(1), noArticles: filtered.length === 0,
+      clearFilter: () => this.setState({ filter: 'Todos' }),
+      article, related,
+      copyLabel: s.copied ? 'Link copiado' : 'Copiar link',
+      copyLink: () => { try { navigator.clipboard.writeText(window.location.href); } catch (e) {} this.setState({ copied: true }); setTimeout(() => this.setState({ copied: false }), 2400); },
+      form: s.form, errors: s.errors, fields,
+      areaOptions: ['Ainda não sei', ...AREAS.map(a => a.name)],
+      onArea: (e) => setF('area', e.target.value), onMsg: (e) => setF('mensagem', e.target.value), onConsent: (e) => setF('consent', e.target.checked),
+      msgBorder: s.errors.mensagem ? '#A3372B' : '#D6D2C6', msgInvalid: !!s.errors.mensagem,
+      formIdle: s.status !== 'sent', formSent: s.status === 'sent', sending,
+      sendLabel: sending ? 'Enviando mensagem' : 'Enviar mensagem', sendOpacity: sending ? 0.6 : 1,
+      firstName: (s.form.nome.trim().split(' ')[0]) || '',
+      submit: (e) => {
+        e.preventDefault();
+        const errors = this.validate(s.form);
+        this.setState({ errors });
+        if (Object.keys(errors).length) return;
+        this.setState({ status: 'sending' });
+        setTimeout(() => this.setState({ status: 'sent' }), 1400);
+      },
+      resetForm: () => this.setState({ form: { ...EMPTY_FORM }, errors: {}, status: 'idle' })
+    };
+  }
+}
+</script>
+</body>
+</html>
