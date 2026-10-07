@@ -26,7 +26,7 @@
 <header style="position:fixed;top:0;left:0;right:0;z-index:50;height:80px;background:rgba(255,255,255,0.84);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);box-shadow:0 1px 0 rgba(10,19,56,0.08)">
   <div style="max-width:1320px;height:100%;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:32px">
     <button onClick="{{ goHome }}" aria-label="Era Advogados, página inicial" style="display:flex;align-items:center;padding:0;background:none;border:none;cursor:pointer;border-radius:2px" style-focus="outline:2px solid #B08A3E;outline-offset:4px">
-      <img src="assets/horizontal_positivo.png" alt="Era Advogados Associados" style="height:48px;width:auto;display:block">
+      <img src="assets/horizontal_positivo.png" alt="Era Advogados Associados" style="height:100%;width:auto;display:block">
     </button>
     <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
       <nav aria-label="Principal" style="display:flex;align-items:center;gap:32px">
@@ -749,7 +749,7 @@
   <div style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(24px,5vw,64px); display: flex; flex-direction: column; gap: clamp(48px,6vw,64px); position: relative">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:48px 40px">
       <div style="display:flex;flex-direction:column;gap:24px">
-        <img src="assets/horizontal_positivo.png" alt="Era Advogados Associados" style="width:132px;height:auto;display:block">
+        <img src="assets/horizontal_positivo.png" alt="Era Advogados Associados" style="width:100%;height:auto;display:block">
         <p style="margin:0;max-width:280px;font-size:14px;line-height:20px;color:#4A4F60">Estratégia jurídica para decisões que impactam o futuro do negócio.</p>
         <div style="display:flex;gap:8px">
           <a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #D6D2C6;border-radius:2px;color:#0A1338;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#0A1338;color:#FFFFFF;border-color:#0A1338"><i class="ph-light ph-linkedin-logo" style="font-size:20px"></i></a>
