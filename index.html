@@ -720,6 +720,106 @@
   </section>
 </sc-if>
 
+<!-- ===================== TRABALHE CONOSCO ===================== -->
+<sc-if value="{{ isCarreiras }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Trabalhe Conosco" style="padding:clamp(64px,8vw,96px) 0 clamp(48px,6vw,64px)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:32px">
+      <div data-reveal="0" style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Trabalhe conosco</div>
+      <h1 data-reveal="80" style="margin:0;max-width:880px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,5.6vw,72px);line-height:1;letter-spacing:-0.015em;color:#0A1338;text-wrap:balance">Advocacia de alto nível se constrói com pessoas que gostam de pensar o negócio.</h1>
+      <p data-reveal="160" style="margin:0;max-width:680px;font-size:18px;line-height:28px;color:#3D4150;text-wrap:pretty">Buscamos advogados, estagiários e profissionais de apoio que queiram crescer perto dos sócios, em casos que exigem técnica, responsabilidade e visão empresarial.</p>
+    </div>
+  </section>
+
+  <section aria-label="O que oferecemos" style="padding:0 0 clamp(64px,9vw,128px)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
+        <sc-for list="{{ perks }}" as="p" hint-placeholder-count="3">
+          <div data-reveal="{{ p.delay }}" style="display:flex;flex-direction:column;gap:24px;padding:40px;background:#0A1338;border:1px solid #0A1338;border-radius:2px">
+            <i class="ph-light {{ p.icon }}" style="font-size:40px;color:#FFFFFF"></i>
+            <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:36px;color:#FFFFFF">{{ p.t }}</h3>
+            <p style="margin:0;font-size:16px;line-height:24px;color:rgba(255,255,255,0.78);text-wrap:pretty">{{ p.d }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Envie seu currículo" style="padding:0 0 clamp(64px,9vw,128px)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(48px,6vw,96px)">
+      <div style="flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:32px">
+        <div data-reveal="0" style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Processo seletivo</div>
+        <h2 data-reveal="80" style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.2vw,60px);line-height:1.05;letter-spacing:-0.01em;color:#0A1338;text-wrap:balance">Como funciona</h2>
+        <ol data-reveal="160" style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column">
+          <sc-for list="{{ hiringSteps }}" as="s" hint-placeholder-count="3">
+            <li style="display:flex;gap:24px;padding:24px 0;box-shadow:inset 0 1px 0 #E4E1D8">
+              <span style="flex:none;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#B08A3E">{{ s.n }}</span>
+              <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:18px;line-height:28px;font-weight:600;color:#0A1338">{{ s.t }}</span><span style="font-size:16px;line-height:24px;color:#4A4F60;text-wrap:pretty">{{ s.d }}</span></div>
+            </li>
+          </sc-for>
+        </ol>
+        <p style="margin:0;font-size:14px;line-height:20px;color:#6B6F7B">Prefere enviar por email? Escreva para <a href="mailto:carreiras@eraadvogados.com.br" style="font-weight:600;color:#0A1338;word-break:break-word">carreiras@eraadvogados.com.br</a>.</p>
+      </div>
+
+      <div data-reveal="120" style="flex:1.2 1 480px;min-width:0">
+        <sc-if value="{{ cFormIdle }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ cSubmit }}" novalidate="" style="display:flex;flex-direction:column;gap:24px;padding:clamp(24px,4vw,48px);background:#F6F4EF;border-radius:2px">
+            <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#0A1338">Envie seu currículo</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px 16px">
+              <sc-for list="{{ cFields }}" as="f" hint-placeholder-count="4">
+                <label style="display:flex;flex-direction:column;gap:8px">
+                  <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">{{ f.label }}<span style="color:#8C6A2A">{{ f.req }}</span></span>
+                  <input type="{{ f.type }}" name="{{ f.key }}" value="{{ f.value }}" onChange="{{ f.onChange }}" autocomplete="{{ f.auto }}" placeholder="{{ f.ph }}" aria-invalid="{{ f.invalid }}" style="width:100%;height:48px;padding:12px 16px;background:#FFFFFF;border:1px solid {{ f.border }};border-radius:2px;font-size:16px;line-height:24px;color:#0A1338;outline:none;transition:all 400ms cubic-bezier(0.32,0.72,0,1)" style-focus="border-color:#0A1338;box-shadow:0 0 0 3px rgba(176,138,62,0.28)">
+                  <sc-if value="{{ f.error }}" hint-placeholder-val="{{ false }}"><span role="alert" style="display:flex;align-items:center;gap:4px;font-size:14px;line-height:20px;color:#A3372B"><i class="ph-light ph-warning-circle"></i>{{ f.error }}</span></sc-if>
+                </label>
+              </sc-for>
+              <label style="display:flex;flex-direction:column;gap:8px">
+                <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Posição de interesse<span style="color:#8C6A2A"> *</span></span>
+                <select value="{{ cForm.vaga }}" onChange="{{ onVaga }}" aria-invalid="{{ vagaInvalid }}" style="width:100%;height:48px;padding:12px 16px;background:#FFFFFF;border:1px solid {{ vagaBorder }};border-radius:2px;font-size:16px;line-height:24px;color:#0A1338;outline:none" style-focus="border-color:#0A1338;box-shadow:0 0 0 3px rgba(176,138,62,0.28)">
+                  <sc-for list="{{ vagaOptions }}" as="o" hint-placeholder-count="5"><option value="{{ o }}">{{ o }}</option></sc-for>
+                </select>
+                <sc-if value="{{ cErrors.vaga }}" hint-placeholder-val="{{ false }}"><span role="alert" style="display:flex;align-items:center;gap:4px;font-size:14px;line-height:20px;color:#A3372B"><i class="ph-light ph-warning-circle"></i>{{ cErrors.vaga }}</span></sc-if>
+              </label>
+              <label style="display:flex;flex-direction:column;gap:8px">
+                <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Área de preferência</span>
+                <select value="{{ cForm.area }}" onChange="{{ onCArea }}" style="width:100%;height:48px;padding:12px 16px;background:#FFFFFF;border:1px solid #D6D2C6;border-radius:2px;font-size:16px;line-height:24px;color:#0A1338;outline:none" style-focus="border-color:#0A1338;box-shadow:0 0 0 3px rgba(176,138,62,0.28)">
+                  <sc-for list="{{ cAreaOptions }}" as="o" hint-placeholder-count="5"><option value="{{ o }}">{{ o }}</option></sc-for>
+                </select>
+              </label>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Currículo<span style="color:#8C6A2A"> *</span></span>
+              <label style="position:relative;display:flex;align-items:center;gap:16px;padding:20px 16px;background:#FFFFFF;border:1px dashed {{ cvBorder }};border-radius:2px;cursor:pointer;transition:all 400ms cubic-bezier(0.32,0.72,0,1)" style-hover="border-color:#0A1338">
+                <input type="file" name="curriculo" accept=".pdf,.doc,.docx" onChange="{{ onCv }}" aria-invalid="{{ cvInvalid }}" aria-label="Anexar currículo" style="position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer">
+                <i class="ph-light {{ cvIcon }}" style="flex:none;font-size:32px;color:#B08A3E"></i>
+                <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:16px;line-height:24px;font-weight:600;color:#0A1338;word-break:break-word">{{ cvLabel }}</span><span style="font-size:14px;line-height:20px;color:#6B6F7B">PDF ou Word, até 5 MB</span></span>
+              </label>
+              <sc-if value="{{ cErrors.cv }}" hint-placeholder-val="{{ false }}"><span role="alert" style="display:flex;align-items:center;gap:4px;font-size:14px;line-height:20px;color:#A3372B"><i class="ph-light ph-warning-circle"></i>{{ cErrors.cv }}</span></sc-if>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Apresentação</span>
+              <textarea name="apresentacao" value="{{ cForm.mensagem }}" onChange="{{ onCMsg }}" rows="4" placeholder="Conte um pouco sobre sua trajetória e o que busca no escritório." style="width:100%;padding:12px 16px;background:#FFFFFF;border:1px solid #D6D2C6;border-radius:2px;font-size:16px;line-height:24px;color:#0A1338;outline:none;resize:vertical" style-focus="border-color:#0A1338;box-shadow:0 0 0 3px rgba(176,138,62,0.28)"></textarea>
+            </label>
+            <label style="display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:20px;color:#4A4F60;cursor:pointer">
+              <input type="checkbox" checked="{{ cForm.consent }}" onChange="{{ onCConsent }}" style="width:20px;height:20px;margin:0;accent-color:#0A1338;flex:none">
+              <span>Autorizo o uso destes dados para fins de recrutamento, conforme a <button type="button" onClick="{{ goPrivacidade }}" style="padding:0;background:none;border:none;cursor:pointer;font-size:14px;color:#0A1338;text-decoration:underline;text-underline-offset:3px">política de privacidade</button>.</span>
+            </label>
+            <sc-if value="{{ cErrors.consent }}" hint-placeholder-val="{{ false }}"><span role="alert" style="margin-top:-16px;font-size:14px;line-height:20px;color:#A3372B">{{ cErrors.consent }}</span></sc-if>
+            <button type="submit" disabled="{{ cSending }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:16px 24px;background:#0A1338;color:#FFFFFF;border:1px solid #0A1338;border-radius:2px;font-size:16px;line-height:24px;font-weight:600;cursor:pointer;opacity:{{ cSendOpacity }};transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#1F2F6B;border-color:#1F2F6B" style-active="transform:scale(0.98)" style-focus="outline:2px solid #B08A3E;outline-offset:3px">{{ cSendLabel }}<i class="ph-light ph-arrow-right" style="font-size:20px"></i></button>
+          </form>
+        </sc-if>
+        <sc-if value="{{ cFormSent }}" hint-placeholder-val="{{ false }}">
+          <div role="status" style="display:flex;flex-direction:column;gap:24px;padding:clamp(24px,4vw,48px);background:#F6F4EF;border-radius:2px">
+            <i class="ph-light ph-check-circle" style="font-size:48px;color:#0A1338"></i>
+            <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#0A1338">Currículo recebido.</h2>
+            <p style="margin:0;font-size:16px;line-height:24px;color:#3D4150;text-wrap:pretty">Obrigado, {{ cFirstName }}. Nossa equipe avalia cada candidatura e entrará em contato pelo email {{ cForm.email }} caso seu perfil esteja alinhado a uma oportunidade.</p>
+            <button onClick="{{ cReset }}" style="align-self:flex-start;padding:8px 0;background:none;border:none;cursor:pointer;font-size:16px;font-weight:600;color:#0A1338;text-decoration:underline;text-decoration-color:#B08A3E;text-underline-offset:6px">Enviar outra candidatura</button>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
 <!-- ===================== CTA GLOBAL ===================== -->
 <sc-if value="{{ showCtaBand }}" hint-placeholder-val="{{ true }}">
   <section style="padding:clamp(64px,9vw,128px) 0">
@@ -762,6 +862,7 @@
         <sc-for list="{{ nav }}" as="item" hint-placeholder-count="6">
           <button onClick="{{ item.go }}" style="align-self:flex-start;padding:0;background:none;border:none;cursor:pointer;font-size:14px;line-height:20px;color:#0A1338" style-hover="text-decoration:underline;text-underline-offset:4px">{{ item.label }}</button>
         </sc-for>
+        <button onClick="{{ goCarreiras }}" style="align-self:flex-start;padding:0;background:none;border:none;cursor:pointer;font-size:14px;line-height:20px;color:#0A1338" style-hover="text-decoration:underline;text-underline-offset:4px">Trabalhe conosco</button>
       </nav>
       <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;line-height:20px;color:#0A1338">
         <span style="font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8C6A2A">Contato</span>
@@ -946,11 +1047,30 @@ const FIELDS = [
   { key:'telefone', label:'Telefone', type:'tel', auto:'tel', ph:'(11) 9 0000 0000', req:false }
 ];
 const EMPTY_FORM = { nome:'', empresa:'', cargo:'', email:'', telefone:'', area:'Ainda não sei', mensagem:'', consent:false };
+const PERKS = [
+  { icon:'ph-users-three', t:'Perto dos sócios', d:'Cada caso tem um sócio responsável. Você participa das reuniões, das decisões e aprende com quem conduz o trabalho.' },
+  { icon:'ph-graduation-cap', t:'Formação contínua', d:'Apoio a pós-graduações, grupos de estudo internos e acompanhamento individual de desenvolvimento a cada semestre.' },
+  { icon:'ph-briefcase', t:'Casos relevantes', d:'Operações societárias, teses tributárias e contencioso estratégico para empresas de médio e grande porte.' }
+];
+const HIRING_STEPS = [
+  { n:'01', t:'Análise do currículo', d:'Avaliamos formação, experiência e alinhamento com as áreas de atuação do escritório.' },
+  { n:'02', t:'Conversa com a equipe', d:'Uma entrevista com o coordenador da área para entender sua trajetória e expectativas.' },
+  { n:'03', t:'Entrevista com o sócio', d:'Etapa final com o sócio responsável, com retorno sobre o processo em qualquer resultado.' }
+];
+const CFIELDS = [
+  { key:'nome', label:'Nome completo', type:'text', auto:'name', ph:'', req:true },
+  { key:'email', label:'Email', type:'email', auto:'email', ph:'nome@email.com.br', req:true },
+  { key:'telefone', label:'Telefone', type:'tel', auto:'tel', ph:'(11) 9 0000 0000', req:false },
+  { key:'linkedin', label:'LinkedIn', type:'url', auto:'url', ph:'linkedin.com/in/seu-perfil', req:false }
+];
+const VAGAS = ['Selecione','Estágio em Direito','Advogado(a) júnior','Advogado(a) pleno','Advogado(a) sênior','Apoio administrativo'];
+const EMPTY_CFORM = { nome:'', email:'', telefone:'', linkedin:'', vaga:'Selecione', area:'Sem preferência', mensagem:'', cv:null, consent:false };
 const EASE = 'cubic-bezier(0.32,0.72,0,1)';
 
 class Component extends DCLogic {
   state = { page: this.props.startPage ?? 'inicio', slide: 0, slideTick: 0, area: 0, member: 0, article: 0, filter: 'Todos', menu: false,
-    w: typeof window !== 'undefined' ? window.innerWidth : 1440, form: { ...EMPTY_FORM }, errors: {}, status: 'idle', copied: false };
+    w: typeof window !== 'undefined' ? window.innerWidth : 1440, form: { ...EMPTY_FORM }, errors: {}, status: 'idle', copied: false,
+    cForm: { ...EMPTY_CFORM }, cErrors: {}, cStatus: 'idle' };
   featureRef = React.createRef();
 
   componentDidMount() {
@@ -1043,6 +1163,18 @@ class Component extends DCLogic {
     if (!form.consent) e.consent = 'É preciso autorizar o uso dos dados para retorno.';
     return e;
   }
+  validateC(form) {
+    const e = {};
+    if (!form.nome.trim()) e.nome = 'Informe seu nome.';
+    if (!form.email.trim()) e.email = 'Informe um email para retorno.';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(form.email.trim())) e.email = 'Este email parece incompleto.';
+    if (form.vaga === VAGAS[0]) e.vaga = 'Escolha a posição de interesse.';
+    if (!form.cv) e.cv = 'Anexe seu currículo.';
+    else if (!/\.(pdf|docx?)$/i.test(form.cv.name)) e.cv = 'Envie o arquivo em PDF ou Word.';
+    else if (form.cv.size > 5 * 1024 * 1024) e.cv = 'O arquivo precisa ter até 5 MB.';
+    if (!form.consent) e.consent = 'É preciso autorizar o uso dos dados para recrutamento.';
+    return e;
+  }
   renderVals() {
     const s = this.state;
     const vw = s.w;
@@ -1083,6 +1215,14 @@ class Component extends DCLogic {
     const fields = FIELDS.map(f => ({ ...f, req: f.req ? ' *' : '', value: s.form[f.key], error: s.errors[f.key] || '', invalid: !!s.errors[f.key],
       border: s.errors[f.key] ? '#A3372B' : '#D6D2C6', onChange: (e) => setF(f.key, e.target.value) }));
     const sending = s.status === 'sending';
+    const setC = (k, v) => this.setState(st => {
+      const cForm = { ...st.cForm, [k]: v }; const cErrors = { ...st.cErrors };
+      if (cErrors[k]) { const ne = this.validateC(cForm); if (ne[k]) cErrors[k] = ne[k]; else delete cErrors[k]; }
+      return { cForm, cErrors };
+    });
+    const cFields = CFIELDS.map(f => ({ ...f, req: f.req ? ' *' : '', value: s.cForm[f.key], error: s.cErrors[f.key] || '', invalid: !!s.cErrors[f.key],
+      border: s.cErrors[f.key] ? '#A3372B' : '#D6D2C6', onChange: (e) => setC(f.key, e.target.value) }));
+    const cSending = s.cStatus === 'sending';
     return {
       desktop, compact: !desktop, menu: s.menu, menuLabel: s.menu ? 'Fechar menu' : 'Abrir menu', menuHidden: !s.menu,
       l1: s.menu ? 'translateY(4px) rotate(45deg)' : 'none', l2: s.menu ? 'translateY(-4px) rotate(-45deg)' : 'none',
@@ -1107,10 +1247,12 @@ class Component extends DCLogic {
       nav, navTop: nav.filter(n => n.id !== 'contato'),
       isInicio: s.page === 'inicio', isEscritorio: s.page === 'escritorio', isAreas: s.page === 'areas', isArea: s.page === 'area',
       isEquipe: s.page === 'equipe', isArtigos: s.page === 'artigos', isArtigo: s.page === 'artigo', isContato: s.page === 'contato', isPrivacidade: s.page === 'privacidade',
-      showCtaBand: !['contato', 'area', 'privacidade'].includes(s.page),
+      isCarreiras: s.page === 'carreiras',
+      showCtaBand: !['contato', 'area', 'privacidade', 'carreiras'].includes(s.page),
       showSticky: mobile && s.page !== 'contato' && (this.props.stickyCta ?? true),
       goHome: () => this.go('inicio'), goEscritorio: () => this.go('escritorio'), goAreas: () => this.go('areas'),
       goArtigos: () => this.go('artigos'), goContato: () => this.go('contato'), goPrivacidade: () => this.go('privacidade'),
+      goCarreiras: () => this.go('carreiras'),
       areas, area, areaTabs, areaTeam,
       taglineLines: TAGLINE.map(l => ({ words: l.split(' ').map(w => ({ w })) })),
       diffs: DIFFS.map((d, i) => ({ ...d, delay: String(i * 80) })),
@@ -1138,7 +1280,29 @@ class Component extends DCLogic {
         this.setState({ status: 'sending' });
         setTimeout(() => this.setState({ status: 'sent' }), 1400);
       },
-      resetForm: () => this.setState({ form: { ...EMPTY_FORM }, errors: {}, status: 'idle' })
+      resetForm: () => this.setState({ form: { ...EMPTY_FORM }, errors: {}, status: 'idle' }),
+      perks: PERKS.map((p, i) => ({ ...p, delay: String(i * 100) })), hiringSteps: HIRING_STEPS,
+      cForm: s.cForm, cErrors: s.cErrors, cFields,
+      vagaOptions: VAGAS, cAreaOptions: ['Sem preferência', ...AREAS.map(a => a.name)],
+      onVaga: (e) => setC('vaga', e.target.value), onCArea: (e) => setC('area', e.target.value),
+      onCMsg: (e) => setC('mensagem', e.target.value), onCConsent: (e) => setC('consent', e.target.checked),
+      onCv: (e) => setC('cv', (e.target.files && e.target.files[0]) || null),
+      vagaBorder: s.cErrors.vaga ? '#A3372B' : '#D6D2C6', vagaInvalid: !!s.cErrors.vaga,
+      cvBorder: s.cErrors.cv ? '#A3372B' : '#D6D2C6', cvInvalid: !!s.cErrors.cv,
+      cvLabel: s.cForm.cv ? s.cForm.cv.name : 'Clique para anexar seu currículo',
+      cvIcon: s.cForm.cv ? 'ph-file-text' : 'ph-upload-simple',
+      cFormIdle: s.cStatus !== 'sent', cFormSent: s.cStatus === 'sent', cSending,
+      cSendLabel: cSending ? 'Enviando candidatura' : 'Enviar candidatura', cSendOpacity: cSending ? 0.6 : 1,
+      cFirstName: (s.cForm.nome.trim().split(' ')[0]) || '',
+      cSubmit: (e) => {
+        e.preventDefault();
+        const cErrors = this.validateC(s.cForm);
+        this.setState({ cErrors });
+        if (Object.keys(cErrors).length) return;
+        this.setState({ cStatus: 'sending' });
+        setTimeout(() => this.setState({ cStatus: 'sent' }), 1400);
+      },
+      cReset: () => this.setState({ cForm: { ...EMPTY_CFORM }, cErrors: {}, cStatus: 'idle' })
     };
   }
 }
