@@ -26,7 +26,7 @@
 <header style="position:fixed;top:0;left:0;right:0;z-index:50;height:80px;background:rgba(255,255,255,0.84);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);box-shadow:0 1px 0 rgba(10,19,56,0.08)">
   <div style="max-width:1320px;height:100%;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:32px">
     <button onClick="{{ goHome }}" aria-label="Era Advogados, página inicial" style="display:flex;align-items:center;padding:0;background:none;border:none;cursor:pointer;border-radius:2px" style-focus="outline:2px solid #B08A3E;outline-offset:4px">
-      <img src="assets/horizontal_positivo.png" alt="Era Advogados Associados" style="height:58px;width:auto;display:block">
+      <img src="assets/era-logo.png" alt="Era Advogados Associados" style="height:48px;width:auto;display:block">
     </button>
     <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
       <nav aria-label="Principal" style="display:flex;align-items:center;gap:32px">
@@ -153,13 +153,13 @@
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px">
         <sc-for list="{{ areas }}" as="a" hint-placeholder-count="4">
           <div data-reveal="{{ a.delay }}">
-            <button onClick="{{ a.go }}" style="display:flex;flex-direction:column;gap:24px;width:100%;height:100%;min-height:360px;padding:32px;background:#0A1338;border:1px solid #0A1338;border-radius:2px;text-align:left;cursor:pointer;transition:all 700ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#13215C;border-color:#B08A3E;transform:translateY(-4px);box-shadow:0 24px 48px -24px rgba(10,19,56,0.45)" style-active="transform:scale(0.98)" style-focus="outline:2px solid #B08A3E;outline-offset:3px">
-              <span style="display:flex;justify-content:space-between;align-items:flex-start;width:100%"><i class="ph-light {{ a.icon }}" style="font-size:40px;color:#FFFFFF"></i><span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;line-height:32px;color:#D4B26A">{{ a.n }}</span></span>
-              <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:36px;color:#FFFFFF;text-wrap:balance">{{ a.name }}</span>
-              <span style="flex:1;font-size:16px;line-height:24px;color:rgba(255,255,255,0.78);text-wrap:pretty">{{ a.summary }}</span>
-              <span style="display:flex;align-items:center;gap:8px;font-size:14px;line-height:20px;font-weight:600;color:#FFFFFF">Conhecer a área<i class="ph-light ph-arrow-right" style="font-size:18px;color:#D4B26A"></i></span>
-            </button>
-          </div>
+            
+          <button onClick="{{ a.go }}" style="display: flex; flex-direction: column; gap: 24px; width: 100%; height: 100%; min-height: 360px; padding: 32px; border: 1px solid #E4E1D8; border-radius: 2px; text-align: left; cursor: pointer; transition: all 700ms cubic-bezier(0.32,0.72,0,1); background-color: #141C40" style-hover="border-color:#0A1338;transform:translateY(-4px);box-shadow:0 24px 48px -24px rgba(10,19,56,0.28)" style-active="transform:scale(0.98)" style-focus="outline:2px solid #B08A3E;outline-offset:3px">
+              <span style="display:flex;justify-content:space-between;align-items:flex-start;width:100%"><i class="ph-light {{ a.icon }}" style="font-size: 40px; color: #FFFFFF"></i><span style="font-family: 'Cormorant Garamond',serif; font-weight: 500; font-size: 24px; line-height: 32px; color: #8C6A2A">{{ a.n }}</span></span>
+              <span style="font-family: 'Cormorant Garamond',serif; font-weight: 500; font-size: 30px; line-height: 36px; color: #fff; text-wrap: balance">{{ a.name }}</span>
+              <span style="flex: 1; font-size: 16px; line-height: 24px; color: #fff; text-wrap: pretty">{{ a.summary }}</span>
+              <span style="display: flex; align-items: center; gap: 8px; font-size: 14px; line-height: 20px; font-weight: 600; color: #fff">Conhecer a área<i class="ph-light ph-arrow-right" style="font-size: 18px; color: #fff"></i></span>
+            </button></div>
         </sc-for>
       </div>
     </div>
@@ -207,7 +207,7 @@
       <div style="flex:1.2 1 480px;min-width:0;display:flex;flex-direction:column">
         <sc-for list="{{ diffs }}" as="d" hint-placeholder-count="4">
           <div data-reveal="{{ d.delay }}" style="display:grid;grid-template-columns:48px minmax(0,1fr);gap:24px;padding:32px 0;box-shadow:inset 0 1px 0 #E4E1D8">
-            <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;line-height:32px;color:#B08A3E">{{ d.n }}</span>
+            <span style="font-family: 'Cormorant Garamond',serif; font-weight: 500; font-size: 24px; line-height: 32px; color: #0A1338; text-align: center; display: flex; justify-content: center; align-items: center">{{ d.n }}</span>
             <div style="display:flex;flex-direction:column;gap:8px">
               <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:36px;color:#0A1338">{{ d.t }}</h3>
               <p style="margin:0;font-size:16px;line-height:24px;color:#4A4F60;text-wrap:pretty">{{ d.d }}</p>
@@ -266,29 +266,29 @@
       </div>
     </div>
   </section>
-  <section style="padding:clamp(64px,9vw,128px) 0;background:#F6F4EF">
+  <section style="padding: clamp(64px,9vw,128px) 0; background-color: #21294B">
     <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
       <div data-reveal="0" style="display:flex;flex-direction:column;gap:24px;max-width:680px">
         <div style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Propósito</div>
-        <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.2vw,60px);line-height:1.05;letter-spacing:-0.01em;color:#0A1338">Missão, visão e valores</h2>
+        <h2 style="margin: 0; font-family: 'Cormorant Garamond',serif; font-weight: 500; font-size: clamp(36px,4.2vw,60px); line-height: 1.05; letter-spacing: -0.01em; color: #FFFFFF">Missão, visão e valores</h2>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px">
-        <div data-reveal="0" style="display:flex;flex-direction:column;gap:24px;padding:40px;background:#0A1338;border:1px solid #0A1338;border-radius:2px">
-          <i class="ph-light ph-target" style="font-size:40px;color:#FFFFFF"></i>
-          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#FFFFFF">Missão</h3>
-          <p style="margin:0;font-size:16px;line-height:24px;color:rgba(255,255,255,0.78);text-wrap:pretty">Oferecer às empresas uma advocacia estratégica, que antecipa riscos e dá segurança às decisões que definem o futuro do negócio.</p>
+        <div data-reveal="0" style="display:flex;flex-direction:column;gap:24px;padding:40px;background:#FFFFFF;border:1px solid #E4E1D8;border-radius:2px">
+          <i class="ph-light ph-target" style="font-size:40px;color:#0A1338"></i>
+          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#0A1338">Missão</h3>
+          <p style="margin:0;font-size:16px;line-height:24px;color:#4A4F60;text-wrap:pretty">Oferecer às empresas uma advocacia estratégica, que antecipa riscos e dá segurança às decisões que definem o futuro do negócio.</p>
         </div>
-        <div data-reveal="100" style="display:flex;flex-direction:column;gap:24px;padding:40px;background:#0A1338;border:1px solid #0A1338;border-radius:2px">
-          <i class="ph-light ph-binoculars" style="font-size:40px;color:#FFFFFF"></i>
-          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#FFFFFF">Visão</h3>
-          <p style="margin:0;font-size:16px;line-height:24px;color:rgba(255,255,255,0.78);text-wrap:pretty">Ser reconhecido como o parceiro jurídico de confiança das diretorias e conselhos que buscam crescimento sustentável e bem estruturado.</p>
+        <div data-reveal="100" style="display:flex;flex-direction:column;gap:24px;padding:40px;background:#FFFFFF;border:1px solid #E4E1D8;border-radius:2px">
+          <i class="ph-light ph-binoculars" style="font-size:40px;color:#0A1338"></i>
+          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#0A1338">Visão</h3>
+          <p style="margin:0;font-size:16px;line-height:24px;color:#4A4F60;text-wrap:pretty">Ser reconhecido como o parceiro jurídico de confiança das diretorias e conselhos que buscam crescimento sustentável e bem estruturado.</p>
         </div>
-        <div data-reveal="200" style="display:flex;flex-direction:column;gap:24px;padding:40px;background:#0A1338;border:1px solid #0A1338;border-radius:2px">
-          <i class="ph-light ph-seal-check" style="font-size:40px;color:#FFFFFF"></i>
-          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#FFFFFF">Valores</h3>
+        <div data-reveal="200" style="display:flex;flex-direction:column;gap:24px;padding:40px;background:#FFFFFF;border:1px solid #E4E1D8;border-radius:2px">
+          <i class="ph-light ph-seal-check" style="font-size:40px;color:#0A1338"></i>
+          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#0A1338">Valores</h3>
           <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px">
             <sc-for list="{{ values }}" as="v" hint-placeholder-count="5">
-              <li style="display:flex;gap:12px;font-size:16px;line-height:24px;color:rgba(255,255,255,0.78)"><span style="flex:none;width:6px;height:6px;margin-top:9px;background:#D4B26A"></span><span><strong style="color:#FFFFFF;font-weight:600">{{ v.t }}.</strong> {{ v.d }}</span></li>
+              <li style="display:flex;gap:12px;font-size:16px;line-height:24px;color:#4A4F60"><span style="flex:none;width:6px;height:6px;margin-top:9px;background:#B08A3E"></span><span><strong style="color:#0A1338;font-weight:600">{{ v.t }}.</strong> {{ v.d }}</span></li>
             </sc-for>
           </ul>
         </div>
@@ -391,10 +391,10 @@
       </div>
       <ol style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
         <sc-for list="{{ area.steps }}" as="s" hint-placeholder-count="3">
-          <li data-reveal="{{ s.delay }}" style="display:flex;flex-direction:column;gap:16px;padding:40px;background:#0A1338;border:1px solid #0A1338;border-radius:2px">
-            <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:48px;line-height:1;color:#D4B26A">{{ s.n }}</span>
-            <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:36px;color:#FFFFFF">{{ s.t }}</h3>
-            <p style="margin:0;font-size:16px;line-height:24px;color:rgba(255,255,255,0.78);text-wrap:pretty">{{ s.d }}</p>
+          <li data-reveal="{{ s.delay }}" style="display:flex;flex-direction:column;gap:16px;padding:40px;background:#FFFFFF;border:1px solid #E4E1D8;border-radius:2px">
+            <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:48px;line-height:1;color:#B08A3E">{{ s.n }}</span>
+            <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:36px;color:#0A1338">{{ s.t }}</h3>
+            <p style="margin:0;font-size:16px;line-height:24px;color:#4A4F60;text-wrap:pretty">{{ s.d }}</p>
           </li>
         </sc-for>
       </ol>
@@ -415,11 +415,10 @@
         <sc-for list="{{ areaTeam }}" as="m" hint-placeholder-count="2">
           <div style="display:flex;align-items:center;gap:16px">
             <div style="flex:none;position:relative;width:80px;height:96px;background:#EDEAE2"><image-slot id="team-{{ m.id }}" shape="rect" placeholder="Foto" style="position:absolute;inset:0"></image-slot></div>
-            <button onClick="{{ m.go }}" style="display:flex;flex-direction:column;gap:4px;padding:0;background:none;border:none;text-align:left;cursor:pointer" style-hover="opacity:0.75" style-focus="outline:2px solid #B08A3E;outline-offset:4px">
+            <div style="display:flex;flex-direction:column;gap:4px">
               <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;line-height:32px;color:#0A1338">{{ m.name }}</span>
               <span style="font-size:14px;line-height:20px;color:#4A4F60">{{ m.role }}</span>
-              <span style="display:flex;align-items:center;gap:4px;font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Ver perfil<i class="ph-light ph-arrow-right" style="color:#B08A3E"></i></span>
-            </button>
+            </div>
           </div>
         </sc-for>
       </div>
@@ -433,77 +432,6 @@
           <p style="margin:0;font-size:16px;line-height:24px;color:#C9CCD8;text-wrap:pretty">Conte brevemente o contexto. Um sócio da área retorna em até um dia útil, sob sigilo profissional.</p>
         </div>
         <button onClick="{{ goContato }}" style="display:inline-flex;align-items:center;gap:12px;padding:16px 24px;background:#FFFFFF;color:#0A1338;border:1px solid #FFFFFF;border-radius:2px;font-size:16px;line-height:24px;font-weight:600;cursor:pointer;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#E9DDBF;border-color:#E9DDBF" style-active="transform:scale(0.98)" style-focus="outline:2px solid #C9A55C;outline-offset:3px">Fale com um especialista<i class="ph-light ph-arrow-right" style="font-size:20px"></i></button>
-      </div>
-    </div>
-  </section>
-</sc-if>
-
-<!-- ===================== EQUIPE ===================== -->
-<sc-if value="{{ isEquipe }}" hint-placeholder-val="{{ false }}">
-  <section data-screen-label="Nossa Equipe" style="padding:clamp(64px,8vw,96px) 0 clamp(48px,6vw,64px)">
-    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:32px">
-      <div data-reveal="0" style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Nossa equipe</div>
-      <h1 data-reveal="80" style="margin:0;max-width:880px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,5.6vw,72px);line-height:1;letter-spacing:-0.015em;color:#0A1338;text-wrap:balance">Quem cuida do seu caso tem nome, trajetória e responsabilidade.</h1>
-      <p data-reveal="160" style="margin:0;max-width:680px;font-size:18px;line-height:28px;color:#3D4150;text-wrap:pretty">Nossos sócios conduzem pessoalmente cada relacionamento. Conheça a formação e a experiência de quem estará ao lado da sua empresa.</p>
-    </div>
-  </section>
-
-  <section ref="{{ featureRef }}" aria-label="Perfil em destaque" style="padding:0 0 clamp(64px,9vw,128px);scroll-margin-top:104px">
-    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px)">
-      <div style="display:flex;flex-wrap:wrap;gap:clamp(40px,5vw,80px);padding:clamp(24px,4vw,64px);background:#0A1338;border-radius:2px">
-        <div style="flex:1 1 340px;min-width:0;max-width:520px;display:flex;flex-direction:column;gap:16px">
-          <div style="position:relative;aspect-ratio:4/5;background:#1F2F6B"><image-slot id="team-{{ member.id }}" shape="rect" placeholder="Retrato de {{ member.name }}" style="position:absolute;inset:0"></image-slot></div>
-          <div style="display:flex;gap:8px">
-            <a href="mailto:{{ member.email }}" aria-label="Enviar email" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(255,255,255,0.24);border-radius:2px;color:#FFFFFF;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#FFFFFF;color:#0A1338;border-color:#FFFFFF" style-focus="outline:2px solid #C9A55C;outline-offset:3px"><i class="ph-light ph-envelope-simple" style="font-size:20px"></i></a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(255,255,255,0.24);border-radius:2px;color:#FFFFFF;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#FFFFFF;color:#0A1338;border-color:#FFFFFF" style-focus="outline:2px solid #C9A55C;outline-offset:3px"><i class="ph-light ph-linkedin-logo" style="font-size:20px"></i></a>
-          </div>
-        </div>
-        <div style="flex:1.4 1 460px;min-width:0;display:flex;flex-direction:column;gap:32px">
-          <div style="display:flex;flex-direction:column;gap:16px">
-            <div style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#C9A55C"><span style="width:32px;height:1px;background:#C9A55C"></span>{{ member.role }}</div>
-            <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.2vw,60px);line-height:1.05;letter-spacing:-0.01em;color:#FFFFFF;text-wrap:balance">{{ member.name }}</h2>
-            <p style="margin:0;display:flex;flex-wrap:wrap;gap:8px 16px;font-size:14px;line-height:20px;color:#C9CCD8"><span style="font-weight:600;color:#FFFFFF">{{ member.area }}</span><span>{{ member.oab }}</span><span>{{ member.years }}</span></p>
-          </div>
-          <blockquote style="margin:0;padding:24px 0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.16),inset 0 -1px 0 rgba(255,255,255,0.16);font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,2.4vw,30px);line-height:1.2;color:#FFFFFF;text-wrap:balance">“{{ member.quote }}”</blockquote>
-          <div style="display:flex;flex-direction:column;gap:16px">
-            <sc-for list="{{ member.bio }}" as="p" hint-placeholder-count="2">
-              <p style="margin:0;font-size:16px;line-height:24px;color:#C9CCD8;text-wrap:pretty">{{ p }}</p>
-            </sc-for>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:24px">
-            <div style="display:flex;flex-direction:column;gap:8px">
-              <span style="font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C9A55C">Formação</span>
-              <sc-for list="{{ member.edu }}" as="e" hint-placeholder-count="3"><span style="font-size:14px;line-height:20px;color:#FFFFFF">{{ e }}</span></sc-for>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:8px">
-              <span style="font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C9A55C">Reconhecimentos</span>
-              <sc-for list="{{ member.rec }}" as="e" hint-placeholder-count="2"><span style="font-size:14px;line-height:20px;color:#FFFFFF">{{ e }}</span></sc-for>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:8px">
-              <span style="font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C9A55C">Idiomas</span>
-              <span style="font-size:14px;line-height:20px;color:#FFFFFF">{{ member.lang }}</span>
-            </div>
-          </div>
-          <button onClick="{{ goContato }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:16px 24px;background:#FFFFFF;color:#0A1338;border:1px solid #FFFFFF;border-radius:2px;font-size:16px;line-height:24px;font-weight:600;cursor:pointer;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#E9DDBF;border-color:#E9DDBF" style-active="transform:scale(0.98)" style-focus="outline:2px solid #C9A55C;outline-offset:3px">Agendar conversa com {{ member.first }}<i class="ph-light ph-arrow-right" style="font-size:20px"></i></button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding:0 0 clamp(64px,9vw,128px)">
-    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:40px">
-      <h2 data-reveal="0" style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3vw,48px);line-height:1.05;color:#0A1338">Sócios e advogados</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:clamp(32px,3vw,48px) 24px">
-        <sc-for list="{{ team }}" as="m" hint-placeholder-count="6">
-          <div data-reveal="{{ m.delay }}" style="display:flex;flex-direction:column;gap:16px">
-            <div style="position:relative;aspect-ratio:4/5;background:#EDEAE2;outline:1px solid {{ m.ring }};outline-offset:8px;transition:outline-color 500ms cubic-bezier(0.32,0.72,0,1)"><image-slot id="team-{{ m.id }}" shape="rect" placeholder="Retrato de {{ m.name }}" style="position:absolute;inset:0"></image-slot></div>
-            <button onClick="{{ m.select }}" aria-pressed="{{ m.sel }}" style="display:flex;flex-direction:column;gap:4px;padding:8px 0 0;background:none;border:none;text-align:left;cursor:pointer" style-hover="opacity:0.75" style-focus="outline:2px solid #B08A3E;outline-offset:4px">
-              <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:36px;color:#0A1338">{{ m.name }}</span>
-              <span style="font-size:14px;line-height:20px;color:#4A4F60">{{ m.role }} · {{ m.area }}</span>
-              <span style="display:flex;align-items:center;gap:4px;padding-top:8px;font-size:14px;line-height:20px;font-weight:600;color:#0A1338">{{ m.cta }}<i class="ph-light ph-arrow-up-right" style="color:#B08A3E"></i></span>
-            </button>
-          </div>
-        </sc-for>
       </div>
     </div>
   </section>
@@ -616,7 +544,6 @@
           <span style="font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8C6A2A">Sobre o autor</span>
           <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;line-height:32px;color:#0A1338">{{ article.author }}</span>
           <span style="font-size:14px;line-height:20px;color:#4A4F60">{{ article.authorRole }}</span>
-          <button onClick="{{ article.goAuthor }}" style="align-self:flex-start;display:flex;align-items:center;gap:4px;padding:8px 0 0;background:none;border:none;cursor:pointer;font-size:14px;font-weight:600;color:#0A1338" style-hover="opacity:0.75">Ver perfil completo<i class="ph-light ph-arrow-right" style="color:#B08A3E"></i></button>
         </div>
       </aside>
     </div>
@@ -707,6 +634,99 @@
   </section>
 </sc-if>
 
+<!-- ===================== TRABALHE CONOSCO ===================== -->
+<sc-if value="{{ isCarreiras }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Trabalhe Conosco" style="padding:clamp(64px,8vw,96px) 0 clamp(48px,6vw,64px)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:32px">
+      <div data-reveal="0" style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Trabalhe conosco</div>
+      <h1 data-reveal="80" style="margin:0;max-width:880px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,5.6vw,72px);line-height:1;letter-spacing:-0.015em;color:#0A1338;text-wrap:balance">Advocacia feita perto <em style="font-style:italic;color:#B08A3E">da decisão.</em></h1>
+      <p data-reveal="160" style="margin:0;max-width:680px;font-size:18px;line-height:28px;color:#3D4150;text-wrap:pretty">Buscamos advogados que gostam de entender o negócio do cliente tanto quanto a lei. Aqui, cada profissional participa das reuniões, assina o próprio trabalho e cresce com mentoria direta dos sócios.</p>
+    </div>
+  </section>
+
+  <section aria-label="Como trabalhamos" style="padding:clamp(32px,4vw,48px) 0 clamp(64px,8vw,96px)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:0 40px">
+        <sc-for list="{{ careerPillars }}" as="p" hint-placeholder-count="3">
+          <div data-reveal="{{ p.delay }}" style="display:flex;flex-direction:column;gap:16px;padding:32px 0;box-shadow:inset 0 1px 0 #E4E1D8">
+            <i class="ph-light {{ p.icon }}" style="font-size:32px;color:#B08A3E"></i>
+            <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:36px;color:#0A1338">{{ p.t }}</h2>
+            <p style="margin:0;font-size:16px;line-height:24px;color:#4A4F60;text-wrap:pretty">{{ p.d }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section ref="{{ jobRef }}" aria-label="Candidatura" style="padding:clamp(64px,8vw,96px) 0 clamp(64px,9vw,128px)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(48px,6vw,96px)">
+      <div data-reveal="0" style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Candidatura</div>
+        <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.2vw,60px);line-height:1.05;letter-spacing:-0.01em;color:#0A1338;text-wrap:balance">Envie seu currículo</h2>
+        <p style="margin:0;max-width:440px;font-size:16px;line-height:24px;color:#3D4150;text-wrap:pretty">Todas as candidaturas são lidas pela equipe de pessoas e pelo sócio da área. Retornamos em até 10 dias úteis.</p>
+        <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column">
+          <sc-for list="{{ hireSteps }}" as="h" hint-placeholder-count="3">
+            <li style="display:flex;gap:16px;padding:16px 0;box-shadow:inset 0 1px 0 #E4E1D8"><span style="flex:none;width:32px;font-family:'Cormorant Garamond',serif;font-size:24px;line-height:28px;color:#B08A3E">{{ h.n }}</span><span style="font-size:16px;line-height:28px;color:#0A1338">{{ h.t }}</span></li>
+          </sc-for>
+        </ol>
+      </div>
+
+      <div data-reveal="120" style="flex:1.4 1 480px;min-width:0">
+        <sc-if value="{{ jobIdle }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ jobSubmit }}" novalidate="" style="display:flex;flex-direction:column;gap:24px;padding:clamp(24px,4vw,48px);background:#F6F4EF;border-radius:2px">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px 16px">
+              <sc-for list="{{ jobFields }}" as="f" hint-placeholder-count="4">
+                <label style="display:flex;flex-direction:column;gap:8px">
+                  <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">{{ f.label }}<span style="color:#8C6A2A">{{ f.req }}</span></span>
+                  <input type="{{ f.type }}" name="{{ f.key }}" value="{{ f.value }}" onChange="{{ f.onChange }}" autocomplete="{{ f.auto }}" placeholder="{{ f.ph }}" aria-invalid="{{ f.invalid }}" style="width:100%;height:48px;padding:12px 16px;background:#FFFFFF;border:1px solid {{ f.border }};border-radius:2px;font-size:16px;line-height:24px;color:#0A1338;outline:none;transition:all 400ms cubic-bezier(0.32,0.72,0,1)" style-focus="border-color:#0A1338;box-shadow:0 0 0 3px rgba(176,138,62,0.28)">
+                  <sc-if value="{{ f.error }}" hint-placeholder-val="{{ false }}"><span role="alert" style="display:flex;align-items:center;gap:4px;font-size:14px;line-height:20px;color:#A3372B"><i class="ph-light ph-warning-circle"></i>{{ f.error }}</span></sc-if>
+                </label>
+              </sc-for>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Vaga de interesse</span>
+              <select value="{{ job.vaga }}" onChange="{{ onJobVaga }}" style="width:100%;height:48px;padding:12px 16px;background:#FFFFFF;border:1px solid #D6D2C6;border-radius:2px;font-size:16px;line-height:24px;color:#0A1338;outline:none" style-focus="border-color:#0A1338;box-shadow:0 0 0 3px rgba(176,138,62,0.28)">
+                <sc-for list="{{ jobOptions }}" as="o" hint-placeholder-count="4"><option value="{{ o }}">{{ o }}</option></sc-for>
+              </select>
+            </label>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Currículo<span style="color:#8C6A2A"> *</span></span>
+              <label style="position:relative;display:flex;align-items:center;gap:16px;padding:16px;background:#FFFFFF;border:1px dashed {{ cvBorder }};border-radius:2px;cursor:pointer" style-hover="border-color:#0A1338">
+                <i class="ph-light {{ cvIcon }}" style="flex:none;font-size:28px;color:#B08A3E"></i>
+                <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px">
+                  <span style="font-size:16px;line-height:24px;font-weight:600;color:#0A1338;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ cvLabel }}</span>
+                  <span style="font-size:14px;line-height:20px;color:#6B6F7B">PDF ou DOCX, até 5 MB</span>
+                </span>
+                <span style="flex:none;font-size:14px;line-height:20px;font-weight:600;color:#0A1338;text-decoration:underline;text-decoration-color:#B08A3E;text-underline-offset:4px">{{ cvAction }}</span>
+                <input type="file" accept=".pdf,.doc,.docx" onChange="{{ onCv }}" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none">
+              </label>
+              <sc-if value="{{ jobErrors.cv }}" hint-placeholder-val="{{ false }}"><span role="alert" style="display:flex;align-items:center;gap:4px;font-size:14px;line-height:20px;color:#A3372B"><i class="ph-light ph-warning-circle"></i>{{ jobErrors.cv }}</span></sc-if>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Por que o Era Advogados?</span>
+              <textarea value="{{ job.mensagem }}" onChange="{{ onJobMsg }}" rows="4" placeholder="Conte, em poucas linhas, sua trajetória e o que procura." style="width:100%;padding:12px 16px;background:#FFFFFF;border:1px solid #D6D2C6;border-radius:2px;font-size:16px;line-height:24px;color:#0A1338;outline:none;resize:vertical" style-focus="border-color:#0A1338;box-shadow:0 0 0 3px rgba(176,138,62,0.28)"></textarea>
+            </label>
+            <label style="display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:20px;color:#4A4F60;cursor:pointer">
+              <input type="checkbox" checked="{{ job.consent }}" onChange="{{ onJobConsent }}" style="width:20px;height:20px;margin:0;accent-color:#0A1338;flex:none">
+              <span>Autorizo o uso destes dados em processos seletivos do escritório, conforme a <button type="button" onClick="{{ goPrivacidade }}" style="padding:0;background:none;border:none;cursor:pointer;font-size:14px;color:#0A1338;text-decoration:underline;text-underline-offset:3px">política de privacidade</button>.</span>
+            </label>
+            <sc-if value="{{ jobErrors.consent }}" hint-placeholder-val="{{ false }}"><span role="alert" style="margin-top:-16px;font-size:14px;line-height:20px;color:#A3372B">{{ jobErrors.consent }}</span></sc-if>
+            <button type="submit" disabled="{{ jobSending }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:16px 24px;background:#0A1338;color:#FFFFFF;border:1px solid #0A1338;border-radius:2px;font-size:16px;line-height:24px;font-weight:600;cursor:pointer;opacity:{{ jobSendOpacity }};transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#1F2F6B;border-color:#1F2F6B" style-active="transform:scale(0.98)" style-focus="outline:2px solid #B08A3E;outline-offset:3px">{{ jobSendLabel }}<i class="ph-light ph-arrow-right" style="font-size:20px"></i></button>
+          </form>
+        </sc-if>
+        <sc-if value="{{ jobSent }}" hint-placeholder-val="{{ false }}">
+          <div role="status" style="display:flex;flex-direction:column;gap:24px;padding:clamp(24px,4vw,48px);background:#F6F4EF;border-radius:2px">
+            <i class="ph-light ph-check-circle" style="font-size:48px;color:#0A1338"></i>
+            <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#0A1338">Candidatura recebida.</h2>
+            <p style="margin:0;font-size:16px;line-height:24px;color:#3D4150;text-wrap:pretty">Obrigado, {{ jobFirstName }}. Recebemos seu currículo para {{ job.vaga }} e retornaremos pelo email {{ job.email }}.</p>
+            <button onClick="{{ jobReset }}" style="align-self:flex-start;padding:8px 0;background:none;border:none;cursor:pointer;font-size:16px;font-weight:600;color:#0A1338;text-decoration:underline;text-decoration-color:#B08A3E;text-underline-offset:6px">Enviar outra candidatura</button>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
 <!-- ===================== PRIVACIDADE ===================== -->
 <sc-if value="{{ isPrivacidade }}" hint-placeholder-val="{{ false }}">
   <section data-screen-label="Privacidade" style="padding:clamp(64px,8vw,96px) 0 clamp(64px,9vw,128px)">
@@ -716,106 +736,6 @@
       <p style="margin:0;font-size:18px;line-height:28px;color:#2E3242">Tratamos os dados pessoais enviados por este site apenas para responder ao contato solicitado, em conformidade com a Lei Geral de Proteção de Dados (Lei 13.709/2018) e com o dever de sigilo profissional previsto no Estatuto da Advocacia.</p>
       <p style="margin:0;font-size:18px;line-height:28px;color:#2E3242">Não compartilhamos informações com terceiros para fins comerciais. Você pode solicitar acesso, correção ou exclusão dos seus dados a qualquer momento pelo email privacidade@eraadvogados.com.br.</p>
       <button onClick="{{ goHome }}" style="align-self:flex-start;display:flex;align-items:center;gap:8px;padding:8px 0;background:none;border:none;cursor:pointer;font-size:16px;font-weight:600;color:#0A1338"><i class="ph-light ph-arrow-left" style="color:#B08A3E"></i>Voltar ao início</button>
-    </div>
-  </section>
-</sc-if>
-
-<!-- ===================== TRABALHE CONOSCO ===================== -->
-<sc-if value="{{ isCarreiras }}" hint-placeholder-val="{{ false }}">
-  <section data-screen-label="Trabalhe Conosco" style="padding:clamp(64px,8vw,96px) 0 clamp(48px,6vw,64px)">
-    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:32px">
-      <div data-reveal="0" style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Trabalhe conosco</div>
-      <h1 data-reveal="80" style="margin:0;max-width:880px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,5.6vw,72px);line-height:1;letter-spacing:-0.015em;color:#0A1338;text-wrap:balance">Advocacia de alto nível se constrói com pessoas que gostam de pensar o negócio.</h1>
-      <p data-reveal="160" style="margin:0;max-width:680px;font-size:18px;line-height:28px;color:#3D4150;text-wrap:pretty">Buscamos advogados, estagiários e profissionais de apoio que queiram crescer perto dos sócios, em casos que exigem técnica, responsabilidade e visão empresarial.</p>
-    </div>
-  </section>
-
-  <section aria-label="O que oferecemos" style="padding:0 0 clamp(64px,9vw,128px)">
-    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px)">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
-        <sc-for list="{{ perks }}" as="p" hint-placeholder-count="3">
-          <div data-reveal="{{ p.delay }}" style="display:flex;flex-direction:column;gap:24px;padding:40px;background:#0A1338;border:1px solid #0A1338;border-radius:2px">
-            <i class="ph-light {{ p.icon }}" style="font-size:40px;color:#FFFFFF"></i>
-            <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:36px;color:#FFFFFF">{{ p.t }}</h3>
-            <p style="margin:0;font-size:16px;line-height:24px;color:rgba(255,255,255,0.78);text-wrap:pretty">{{ p.d }}</p>
-          </div>
-        </sc-for>
-      </div>
-    </div>
-  </section>
-
-  <section aria-label="Envie seu currículo" style="padding:0 0 clamp(64px,9vw,128px)">
-    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(48px,6vw,96px)">
-      <div style="flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:32px">
-        <div data-reveal="0" style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:12px;line-height:16px;letter-spacing:0.16em;text-transform:uppercase;color:#8C6A2A"><span style="width:32px;height:1px;background:#B08A3E"></span>Processo seletivo</div>
-        <h2 data-reveal="80" style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.2vw,60px);line-height:1.05;letter-spacing:-0.01em;color:#0A1338;text-wrap:balance">Como funciona</h2>
-        <ol data-reveal="160" style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column">
-          <sc-for list="{{ hiringSteps }}" as="s" hint-placeholder-count="3">
-            <li style="display:flex;gap:24px;padding:24px 0;box-shadow:inset 0 1px 0 #E4E1D8">
-              <span style="flex:none;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#B08A3E">{{ s.n }}</span>
-              <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:18px;line-height:28px;font-weight:600;color:#0A1338">{{ s.t }}</span><span style="font-size:16px;line-height:24px;color:#4A4F60;text-wrap:pretty">{{ s.d }}</span></div>
-            </li>
-          </sc-for>
-        </ol>
-        <p style="margin:0;font-size:14px;line-height:20px;color:#6B6F7B">Prefere enviar por email? Escreva para <a href="mailto:carreiras@eraadvogados.com.br" style="font-weight:600;color:#0A1338;word-break:break-word">carreiras@eraadvogados.com.br</a>.</p>
-      </div>
-
-      <div data-reveal="120" style="flex:1.2 1 480px;min-width:0">
-        <sc-if value="{{ cFormIdle }}" hint-placeholder-val="{{ true }}">
-          <form onSubmit="{{ cSubmit }}" novalidate="" style="display:flex;flex-direction:column;gap:24px;padding:clamp(24px,4vw,48px);background:#F6F4EF;border-radius:2px">
-            <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#0A1338">Envie seu currículo</h2>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px 16px">
-              <sc-for list="{{ cFields }}" as="f" hint-placeholder-count="4">
-                <label style="display:flex;flex-direction:column;gap:8px">
-                  <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">{{ f.label }}<span style="color:#8C6A2A">{{ f.req }}</span></span>
-                  <input type="{{ f.type }}" name="{{ f.key }}" value="{{ f.value }}" onChange="{{ f.onChange }}" autocomplete="{{ f.auto }}" placeholder="{{ f.ph }}" aria-invalid="{{ f.invalid }}" style="width:100%;height:48px;padding:12px 16px;background:#FFFFFF;border:1px solid {{ f.border }};border-radius:2px;font-size:16px;line-height:24px;color:#0A1338;outline:none;transition:all 400ms cubic-bezier(0.32,0.72,0,1)" style-focus="border-color:#0A1338;box-shadow:0 0 0 3px rgba(176,138,62,0.28)">
-                  <sc-if value="{{ f.error }}" hint-placeholder-val="{{ false }}"><span role="alert" style="display:flex;align-items:center;gap:4px;font-size:14px;line-height:20px;color:#A3372B"><i class="ph-light ph-warning-circle"></i>{{ f.error }}</span></sc-if>
-                </label>
-              </sc-for>
-              <label style="display:flex;flex-direction:column;gap:8px">
-                <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Posição de interesse<span style="color:#8C6A2A"> *</span></span>
-                <select value="{{ cForm.vaga }}" onChange="{{ onVaga }}" aria-invalid="{{ vagaInvalid }}" style="width:100%;height:48px;padding:12px 16px;background:#FFFFFF;border:1px solid {{ vagaBorder }};border-radius:2px;font-size:16px;line-height:24px;color:#0A1338;outline:none" style-focus="border-color:#0A1338;box-shadow:0 0 0 3px rgba(176,138,62,0.28)">
-                  <sc-for list="{{ vagaOptions }}" as="o" hint-placeholder-count="5"><option value="{{ o }}">{{ o }}</option></sc-for>
-                </select>
-                <sc-if value="{{ cErrors.vaga }}" hint-placeholder-val="{{ false }}"><span role="alert" style="display:flex;align-items:center;gap:4px;font-size:14px;line-height:20px;color:#A3372B"><i class="ph-light ph-warning-circle"></i>{{ cErrors.vaga }}</span></sc-if>
-              </label>
-              <label style="display:flex;flex-direction:column;gap:8px">
-                <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Área de preferência</span>
-                <select value="{{ cForm.area }}" onChange="{{ onCArea }}" style="width:100%;height:48px;padding:12px 16px;background:#FFFFFF;border:1px solid #D6D2C6;border-radius:2px;font-size:16px;line-height:24px;color:#0A1338;outline:none" style-focus="border-color:#0A1338;box-shadow:0 0 0 3px rgba(176,138,62,0.28)">
-                  <sc-for list="{{ cAreaOptions }}" as="o" hint-placeholder-count="5"><option value="{{ o }}">{{ o }}</option></sc-for>
-                </select>
-              </label>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:8px">
-              <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Currículo<span style="color:#8C6A2A"> *</span></span>
-              <label style="position:relative;display:flex;align-items:center;gap:16px;padding:20px 16px;background:#FFFFFF;border:1px dashed {{ cvBorder }};border-radius:2px;cursor:pointer;transition:all 400ms cubic-bezier(0.32,0.72,0,1)" style-hover="border-color:#0A1338">
-                <input type="file" name="curriculo" accept=".pdf,.doc,.docx" onChange="{{ onCv }}" aria-invalid="{{ cvInvalid }}" aria-label="Anexar currículo" style="position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer">
-                <i class="ph-light {{ cvIcon }}" style="flex:none;font-size:32px;color:#B08A3E"></i>
-                <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:16px;line-height:24px;font-weight:600;color:#0A1338;word-break:break-word">{{ cvLabel }}</span><span style="font-size:14px;line-height:20px;color:#6B6F7B">PDF ou Word, até 5 MB</span></span>
-              </label>
-              <sc-if value="{{ cErrors.cv }}" hint-placeholder-val="{{ false }}"><span role="alert" style="display:flex;align-items:center;gap:4px;font-size:14px;line-height:20px;color:#A3372B"><i class="ph-light ph-warning-circle"></i>{{ cErrors.cv }}</span></sc-if>
-            </div>
-            <label style="display:flex;flex-direction:column;gap:8px">
-              <span style="font-size:14px;line-height:20px;font-weight:600;color:#0A1338">Apresentação</span>
-              <textarea name="apresentacao" value="{{ cForm.mensagem }}" onChange="{{ onCMsg }}" rows="4" placeholder="Conte um pouco sobre sua trajetória e o que busca no escritório." style="width:100%;padding:12px 16px;background:#FFFFFF;border:1px solid #D6D2C6;border-radius:2px;font-size:16px;line-height:24px;color:#0A1338;outline:none;resize:vertical" style-focus="border-color:#0A1338;box-shadow:0 0 0 3px rgba(176,138,62,0.28)"></textarea>
-            </label>
-            <label style="display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:20px;color:#4A4F60;cursor:pointer">
-              <input type="checkbox" checked="{{ cForm.consent }}" onChange="{{ onCConsent }}" style="width:20px;height:20px;margin:0;accent-color:#0A1338;flex:none">
-              <span>Autorizo o uso destes dados para fins de recrutamento, conforme a <button type="button" onClick="{{ goPrivacidade }}" style="padding:0;background:none;border:none;cursor:pointer;font-size:14px;color:#0A1338;text-decoration:underline;text-underline-offset:3px">política de privacidade</button>.</span>
-            </label>
-            <sc-if value="{{ cErrors.consent }}" hint-placeholder-val="{{ false }}"><span role="alert" style="margin-top:-16px;font-size:14px;line-height:20px;color:#A3372B">{{ cErrors.consent }}</span></sc-if>
-            <button type="submit" disabled="{{ cSending }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:16px 24px;background:#0A1338;color:#FFFFFF;border:1px solid #0A1338;border-radius:2px;font-size:16px;line-height:24px;font-weight:600;cursor:pointer;opacity:{{ cSendOpacity }};transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#1F2F6B;border-color:#1F2F6B" style-active="transform:scale(0.98)" style-focus="outline:2px solid #B08A3E;outline-offset:3px">{{ cSendLabel }}<i class="ph-light ph-arrow-right" style="font-size:20px"></i></button>
-          </form>
-        </sc-if>
-        <sc-if value="{{ cFormSent }}" hint-placeholder-val="{{ false }}">
-          <div role="status" style="display:flex;flex-direction:column;gap:24px;padding:clamp(24px,4vw,48px);background:#F6F4EF;border-radius:2px">
-            <i class="ph-light ph-check-circle" style="font-size:48px;color:#0A1338"></i>
-            <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;line-height:40px;color:#0A1338">Currículo recebido.</h2>
-            <p style="margin:0;font-size:16px;line-height:24px;color:#3D4150;text-wrap:pretty">Obrigado, {{ cFirstName }}. Nossa equipe avalia cada candidatura e entrará em contato pelo email {{ cForm.email }} caso seu perfil esteja alinhado a uma oportunidade.</p>
-            <button onClick="{{ cReset }}" style="align-self:flex-start;padding:8px 0;background:none;border:none;cursor:pointer;font-size:16px;font-weight:600;color:#0A1338;text-decoration:underline;text-decoration-color:#B08A3E;text-underline-offset:6px">Enviar outra candidatura</button>
-          </div>
-        </sc-if>
-      </div>
     </div>
   </section>
 </sc-if>
@@ -849,7 +769,7 @@
   <div style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(24px,5vw,64px); display: flex; flex-direction: column; gap: clamp(48px,6vw,64px); position: relative">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:48px 40px">
       <div style="display:flex;flex-direction:column;gap:24px">
-        <img src="assets/horizontal_positivo.png" alt="Era Advogados Associados" style="width:100%;height:auto;display:block">
+        <img src="assets/era-logo.png" alt="Era Advogados Associados" style="width:132px;height:auto;display:block">
         <p style="margin:0;max-width:280px;font-size:14px;line-height:20px;color:#4A4F60">Estratégia jurídica para decisões que impactam o futuro do negócio.</p>
         <div style="display:flex;gap:8px">
           <a href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #D6D2C6;border-radius:2px;color:#0A1338;transition:all 500ms cubic-bezier(0.32,0.72,0,1)" style-hover="background:#0A1338;color:#FFFFFF;border-color:#0A1338"><i class="ph-light ph-linkedin-logo" style="font-size:20px"></i></a>
@@ -893,7 +813,7 @@
 </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;startPage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;inicio&quot;,&quot;escritorio&quot;,&quot;areas&quot;,&quot;area&quot;,&quot;equipe&quot;,&quot;artigos&quot;,&quot;artigo&quot;,&quot;contato&quot;],&quot;default&quot;:&quot;inicio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Navegação&quot;},&quot;stickyCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mobile&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Animação&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;startPage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;inicio&quot;,&quot;escritorio&quot;,&quot;areas&quot;,&quot;area&quot;,&quot;artigos&quot;,&quot;artigo&quot;,&quot;contato&quot;],&quot;default&quot;:&quot;inicio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Navegação&quot;},&quot;stickyCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mobile&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Animação&quot;}}">
 const AREAS = [
   { slug:'empresarial', n:'01', name:'Direito Empresarial', short:'direito empresarial', icon:'ph-buildings',
     imgHint:'Sala de conselho ou mesa de negociação',
@@ -1037,7 +957,7 @@ const SLIDES = [
 ];
 const SLIDE_MS = 7000;
 const TAGLINE = ['Antecipar o risco custa menos do que resolvê-lo.', 'Por isso, nosso trabalho começa antes do problema.'];
-const NAV = [['inicio','Início'],['escritorio','O Escritório'],['areas','Áreas de atuação'],['equipe','Equipe'],['artigos','Artigos'],['contato','Contato']];
+const NAV = [['inicio','Início'],['escritorio','O Escritório'],['areas','Áreas de atuação'],['artigos','Artigos'],['contato','Contato']];
 const FILTERS = ['Todos','Empresarial','Trabalhista','Tributário','Assessoria'];
 const FIELDS = [
   { key:'nome', label:'Nome completo', type:'text', auto:'name', ph:'', req:true },
@@ -1047,30 +967,30 @@ const FIELDS = [
   { key:'telefone', label:'Telefone', type:'tel', auto:'tel', ph:'(11) 9 0000 0000', req:false }
 ];
 const EMPTY_FORM = { nome:'', empresa:'', cargo:'', email:'', telefone:'', area:'Ainda não sei', mensagem:'', consent:false };
-const PERKS = [
-  { icon:'ph-users-three', t:'Perto dos sócios', d:'Cada caso tem um sócio responsável. Você participa das reuniões, das decisões e aprende com quem conduz o trabalho.' },
-  { icon:'ph-graduation-cap', t:'Formação contínua', d:'Apoio a pós-graduações, grupos de estudo internos e acompanhamento individual de desenvolvimento a cada semestre.' },
-  { icon:'ph-briefcase', t:'Casos relevantes', d:'Operações societárias, teses tributárias e contencioso estratégico para empresas de médio e grande porte.' }
+const EASE = 'cubic-bezier(0.32,0.72,0,1)';
+const JOBS = [
+  { title:'Advogado(a) Pleno', area:'Empresarial · Societário e M&A', place:'São Paulo · Híbrido', desc:'Estruturação de operações societárias, due diligence e acordos de sócios, em contato direto com conselhos e diretorias.' },
+  { title:'Advogado(a) Sênior', area:'Tributário', place:'São Paulo · Híbrido', desc:'Planejamento tributário de grupos econômicos e condução de contencioso administrativo estratégico.' },
+  { title:'Estagiário(a) de Direito', area:'Trabalhista', place:'Brasília · Presencial', desc:'Apoio em auditorias trabalhistas preventivas e na elaboração de políticas internas. A partir do 3º ano.' }
 ];
-const HIRING_STEPS = [
-  { n:'01', t:'Análise do currículo', d:'Avaliamos formação, experiência e alinhamento com as áreas de atuação do escritório.' },
-  { n:'02', t:'Conversa com a equipe', d:'Uma entrevista com o coordenador da área para entender sua trajetória e expectativas.' },
-  { n:'03', t:'Entrevista com o sócio', d:'Etapa final com o sócio responsável, com retorno sobre o processo em qualquer resultado.' }
+const PILLARS = [
+  { icon:'ph-users-three', t:'Perto dos sócios', d:'Equipes enxutas. Você trabalha lado a lado com quem assina a estratégia, desde o primeiro dia.' },
+  { icon:'ph-briefcase', t:'Visão de negócio', d:'Formação contínua em finanças, governança e setores dos clientes — não só em direito.' },
+  { icon:'ph-trend-up', t:'Carreira clara', d:'Critérios de avaliação objetivos, revisados duas vezes ao ano, com plano de desenvolvimento individual.' }
 ];
-const CFIELDS = [
-  { key:'nome', label:'Nome completo', type:'text', auto:'name', ph:'', req:true },
-  { key:'email', label:'Email', type:'email', auto:'email', ph:'nome@email.com.br', req:true },
+const HIRE_STEPS = ['Análise do currículo','Conversa com o sócio da área','Estudo de caso e proposta'];
+const JOB_FIELDS = [
+  { key:'nome', label:'Nome completo', type:'text', auto:'name', ph:'Como prefere ser chamado', req:true },
+  { key:'email', label:'Email', type:'email', auto:'email', ph:'nome@email.com', req:true },
   { key:'telefone', label:'Telefone', type:'tel', auto:'tel', ph:'(11) 9 0000 0000', req:false },
   { key:'linkedin', label:'LinkedIn', type:'url', auto:'url', ph:'linkedin.com/in/seu-perfil', req:false }
 ];
-const VAGAS = ['Selecione','Estágio em Direito','Advogado(a) júnior','Advogado(a) pleno','Advogado(a) sênior','Apoio administrativo'];
-const EMPTY_CFORM = { nome:'', email:'', telefone:'', linkedin:'', vaga:'Selecione', area:'Sem preferência', mensagem:'', cv:null, consent:false };
-const EASE = 'cubic-bezier(0.32,0.72,0,1)';
+const EMPTY_JOB = { nome:'', email:'', telefone:'', linkedin:'', vaga:'Banco de talentos', mensagem:'', cv:'', consent:false };
 
 class Component extends DCLogic {
   state = { page: this.props.startPage ?? 'inicio', slide: 0, slideTick: 0, area: 0, member: 0, article: 0, filter: 'Todos', menu: false,
-    w: typeof window !== 'undefined' ? window.innerWidth : 1440, form: { ...EMPTY_FORM }, errors: {}, status: 'idle', copied: false,
-    cForm: { ...EMPTY_CFORM }, cErrors: {}, cStatus: 'idle' };
+    w: typeof window !== 'undefined' ? window.innerWidth : 1440, form: { ...EMPTY_FORM }, errors: {}, status: 'idle', copied: false, job: { ...EMPTY_JOB }, jobErrors: {}, jobStatus: 'idle' };
+  jobRef = React.createRef();
   featureRef = React.createRef();
 
   componentDidMount() {
@@ -1114,7 +1034,7 @@ class Component extends DCLogic {
   }
   componentDidUpdate(pp, ps) {
     const s = this.state;
-    if (ps.page !== s.page || ps.area !== s.area || ps.article !== s.article || ps.filter !== s.filter || ps.status !== s.status)
+    if (ps.page !== s.page || ps.area !== s.area || ps.article !== s.article || ps.filter !== s.filter || ps.status !== s.status || ps.jobStatus !== s.jobStatus)
       requestAnimationFrame(() => this.setupReveal());
     if (pp.startPage !== this.props.startPage && this.props.startPage) this.go(this.props.startPage);
     if (window.innerWidth >= 1100 && s.menu) this.setState({ menu: false });
@@ -1163,16 +1083,13 @@ class Component extends DCLogic {
     if (!form.consent) e.consent = 'É preciso autorizar o uso dos dados para retorno.';
     return e;
   }
-  validateC(form) {
+  validateJob(j) {
     const e = {};
-    if (!form.nome.trim()) e.nome = 'Informe seu nome.';
-    if (!form.email.trim()) e.email = 'Informe um email para retorno.';
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(form.email.trim())) e.email = 'Este email parece incompleto.';
-    if (form.vaga === VAGAS[0]) e.vaga = 'Escolha a posição de interesse.';
-    if (!form.cv) e.cv = 'Anexe seu currículo.';
-    else if (!/\.(pdf|docx?)$/i.test(form.cv.name)) e.cv = 'Envie o arquivo em PDF ou Word.';
-    else if (form.cv.size > 5 * 1024 * 1024) e.cv = 'O arquivo precisa ter até 5 MB.';
-    if (!form.consent) e.consent = 'É preciso autorizar o uso dos dados para recrutamento.';
+    if (!j.nome.trim()) e.nome = 'Informe seu nome.';
+    if (!j.email.trim()) e.email = 'Informe um email para retorno.';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(j.email.trim())) e.email = 'Este email parece incompleto.';
+    if (!j.cv) e.cv = 'Anexe seu currículo.';
+    if (!j.consent) e.consent = 'É preciso autorizar o uso dos dados.';
     return e;
   }
   renderVals() {
@@ -1200,12 +1117,12 @@ class Component extends DCLogic {
     };
     const team = TEAM.map((m, i) => ({ ...m, delay: String((i % 3) * 90), sel: i === s.member, ring: i === s.member ? '#B08A3E' : 'transparent',
       cta: i === s.member ? 'Perfil em destaque' : 'Ver perfil completo', select: () => selectMember(i) }));
-    const areaTeam = area.team.map(i => ({ ...TEAM[i], go: () => this.go('equipe', { member: i }) }));
+    const areaTeam = area.team.map(i => ({ ...TEAM[i] }));
     const catOf = { Empresarial: 'Empresarial', Trabalhista: 'Trabalhista', Tributário: 'Tributário', Assessoria: 'Assessoria' };
     const articles = ARTICLES.map((a, i) => {
       const ai = TEAM.findIndex(t => t.id === a.authorId);
       return { ...a, author: TEAM[ai].name, authorRole: `${TEAM[ai].role} · ${TEAM[ai].area}`, delay: String((i % 3) * 90),
-        go: () => this.go('artigo', { article: i }), goAuthor: () => this.go('equipe', { member: ai }),
+        go: () => this.go('artigo', { article: i }),
         bodyA: a.paras.slice(0, 2), bodyB: a.paras.slice(2, 3), bodyC: a.paras.slice(3) };
     });
     const filtered = s.filter === 'Todos' ? articles : articles.filter(a => a.cat === catOf[s.filter]);
@@ -1215,15 +1132,44 @@ class Component extends DCLogic {
     const fields = FIELDS.map(f => ({ ...f, req: f.req ? ' *' : '', value: s.form[f.key], error: s.errors[f.key] || '', invalid: !!s.errors[f.key],
       border: s.errors[f.key] ? '#A3372B' : '#D6D2C6', onChange: (e) => setF(f.key, e.target.value) }));
     const sending = s.status === 'sending';
-    const setC = (k, v) => this.setState(st => {
-      const cForm = { ...st.cForm, [k]: v }; const cErrors = { ...st.cErrors };
-      if (cErrors[k]) { const ne = this.validateC(cForm); if (ne[k]) cErrors[k] = ne[k]; else delete cErrors[k]; }
-      return { cForm, cErrors };
+    const setJ = (k, v) => this.setState(st => {
+      const job = { ...st.job, [k]: v }; const jobErrors = { ...st.jobErrors };
+      if (jobErrors[k]) { const ne = this.validateJob(job); if (ne[k]) jobErrors[k] = ne[k]; else delete jobErrors[k]; }
+      return { job, jobErrors };
     });
-    const cFields = CFIELDS.map(f => ({ ...f, req: f.req ? ' *' : '', value: s.cForm[f.key], error: s.cErrors[f.key] || '', invalid: !!s.cErrors[f.key],
-      border: s.cErrors[f.key] ? '#A3372B' : '#D6D2C6', onChange: (e) => setC(f.key, e.target.value) }));
-    const cSending = s.cStatus === 'sending';
+    const jobSending = s.jobStatus === 'sending';
+    const careers = {
+      isCarreiras: s.page === 'carreiras', goCarreiras: () => this.go('carreiras'), jobRef: this.jobRef,
+      careerPillars: PILLARS.map((p, i) => ({ ...p, delay: String(i * 90) })),
+      hireSteps: HIRE_STEPS.map((t, i) => ({ t, n: '0' + (i + 1) })),
+      jobs: JOBS.map((j, i) => ({ ...j, delay: String(i * 80), apply: () => {
+        this.setState(st => ({ job: { ...st.job, vaga: j.title + ' · ' + j.area.split(' · ')[0] }, jobStatus: 'idle' }));
+        const el = this.jobRef.current;
+        if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+      } })),
+      jobOptions: ['Banco de talentos', ...JOBS.map(j => j.title + ' · ' + j.area.split(' · ')[0])],
+      job: s.job, jobErrors: s.jobErrors,
+      jobFields: JOB_FIELDS.map(f => ({ ...f, req: f.req ? ' *' : '', value: s.job[f.key], error: s.jobErrors[f.key] || '', invalid: !!s.jobErrors[f.key],
+        border: s.jobErrors[f.key] ? '#A3372B' : '#D6D2C6', onChange: (e) => setJ(f.key, e.target.value) })),
+      onJobVaga: (e) => setJ('vaga', e.target.value), onJobMsg: (e) => setJ('mensagem', e.target.value), onJobConsent: (e) => setJ('consent', e.target.checked),
+      onCv: (e) => { const f = e.target.files && e.target.files[0]; if (f) setJ('cv', f.name); },
+      cvLabel: s.job.cv || 'Anexar currículo', cvAction: s.job.cv ? 'Trocar' : 'Selecionar', cvIcon: s.job.cv ? 'ph-file-text' : 'ph-paperclip',
+      cvBorder: s.jobErrors.cv ? '#A3372B' : '#C9C4B6',
+      jobIdle: s.jobStatus !== 'sent', jobSent: s.jobStatus === 'sent', jobSending,
+      jobSendLabel: jobSending ? 'Enviando candidatura' : 'Enviar candidatura', jobSendOpacity: jobSending ? 0.6 : 1,
+      jobFirstName: s.job.nome.trim().split(' ')[0] || '',
+      jobSubmit: (e) => {
+        e.preventDefault();
+        const jobErrors = this.validateJob(s.job);
+        this.setState({ jobErrors });
+        if (Object.keys(jobErrors).length) return;
+        this.setState({ jobStatus: 'sending' });
+        setTimeout(() => this.setState({ jobStatus: 'sent' }), 1400);
+      },
+      jobReset: () => this.setState({ job: { ...EMPTY_JOB }, jobErrors: {}, jobStatus: 'idle' })
+    };
     return {
+      ...careers,
       desktop, compact: !desktop, menu: s.menu, menuLabel: s.menu ? 'Fechar menu' : 'Abrir menu', menuHidden: !s.menu,
       l1: s.menu ? 'translateY(4px) rotate(45deg)' : 'none', l2: s.menu ? 'translateY(-4px) rotate(-45deg)' : 'none',
       menuOp: s.menu ? 1 : 0, menuVis: s.menu ? 'visible' : 'hidden',
@@ -1246,13 +1192,11 @@ class Component extends DCLogic {
       heroTouchEnd: (e) => { const dx = e.changedTouches[0].clientX - (this.tx ?? 0); if (Math.abs(dx) > 48) { this.setSlide(s.slide + (dx < 0 ? 1 : -1)); this.startSlider(); } },
       nav, navTop: nav.filter(n => n.id !== 'contato'),
       isInicio: s.page === 'inicio', isEscritorio: s.page === 'escritorio', isAreas: s.page === 'areas', isArea: s.page === 'area',
-      isEquipe: s.page === 'equipe', isArtigos: s.page === 'artigos', isArtigo: s.page === 'artigo', isContato: s.page === 'contato', isPrivacidade: s.page === 'privacidade',
-      isCarreiras: s.page === 'carreiras',
+      isArtigos: s.page === 'artigos', isArtigo: s.page === 'artigo', isContato: s.page === 'contato', isPrivacidade: s.page === 'privacidade',
       showCtaBand: !['contato', 'area', 'privacidade', 'carreiras'].includes(s.page),
       showSticky: mobile && s.page !== 'contato' && (this.props.stickyCta ?? true),
       goHome: () => this.go('inicio'), goEscritorio: () => this.go('escritorio'), goAreas: () => this.go('areas'),
       goArtigos: () => this.go('artigos'), goContato: () => this.go('contato'), goPrivacidade: () => this.go('privacidade'),
-      goCarreiras: () => this.go('carreiras'),
       areas, area, areaTabs, areaTeam,
       taglineLines: TAGLINE.map(l => ({ words: l.split(' ').map(w => ({ w })) })),
       diffs: DIFFS.map((d, i) => ({ ...d, delay: String(i * 80) })),
@@ -1280,29 +1224,7 @@ class Component extends DCLogic {
         this.setState({ status: 'sending' });
         setTimeout(() => this.setState({ status: 'sent' }), 1400);
       },
-      resetForm: () => this.setState({ form: { ...EMPTY_FORM }, errors: {}, status: 'idle' }),
-      perks: PERKS.map((p, i) => ({ ...p, delay: String(i * 100) })), hiringSteps: HIRING_STEPS,
-      cForm: s.cForm, cErrors: s.cErrors, cFields,
-      vagaOptions: VAGAS, cAreaOptions: ['Sem preferência', ...AREAS.map(a => a.name)],
-      onVaga: (e) => setC('vaga', e.target.value), onCArea: (e) => setC('area', e.target.value),
-      onCMsg: (e) => setC('mensagem', e.target.value), onCConsent: (e) => setC('consent', e.target.checked),
-      onCv: (e) => setC('cv', (e.target.files && e.target.files[0]) || null),
-      vagaBorder: s.cErrors.vaga ? '#A3372B' : '#D6D2C6', vagaInvalid: !!s.cErrors.vaga,
-      cvBorder: s.cErrors.cv ? '#A3372B' : '#D6D2C6', cvInvalid: !!s.cErrors.cv,
-      cvLabel: s.cForm.cv ? s.cForm.cv.name : 'Clique para anexar seu currículo',
-      cvIcon: s.cForm.cv ? 'ph-file-text' : 'ph-upload-simple',
-      cFormIdle: s.cStatus !== 'sent', cFormSent: s.cStatus === 'sent', cSending,
-      cSendLabel: cSending ? 'Enviando candidatura' : 'Enviar candidatura', cSendOpacity: cSending ? 0.6 : 1,
-      cFirstName: (s.cForm.nome.trim().split(' ')[0]) || '',
-      cSubmit: (e) => {
-        e.preventDefault();
-        const cErrors = this.validateC(s.cForm);
-        this.setState({ cErrors });
-        if (Object.keys(cErrors).length) return;
-        this.setState({ cStatus: 'sending' });
-        setTimeout(() => this.setState({ cStatus: 'sent' }), 1400);
-      },
-      cReset: () => this.setState({ cForm: { ...EMPTY_CFORM }, cErrors: {}, cStatus: 'idle' })
+      resetForm: () => this.setState({ form: { ...EMPTY_FORM }, errors: {}, status: 'idle' })
     };
   }
 }
